@@ -1,0 +1,15 @@
+#! /bin/sh
+
+echo "Hi from `basename $0`"
+
+EXCELDIR=`pwd`
+CONFIGDIR="$EXCEL/.."
+THRIFTDIR="$CONFIGDIR/Thrift"
+UTILSDIR="$CONFIGDIR/Utils"
+PROJECTDIR="$CONFIGDIR/.."
+DATADIR=PROJECTDIR
+CONVERT="$UTILSDIR/convert.py"
+
+ls "$EXCELDIR"
+
+python $(CONVERT)
