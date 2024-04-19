@@ -39,8 +39,8 @@ struct PoseEntry
 	32: required AssetID matFilename
 	33: required AssetID swooshFilename
 	34: required AssetID shadowFilename
-	35: required AssetID shortAudioFilename
-	36: required AssetID detailAudioFilename
+	35: optional AssetID shortAudioFilename
+	36: optional AssetID detailAudioFilename
 	37: optional bool flipped
 }
 
@@ -59,7 +59,7 @@ struct Session
 
 typedef list<PoseEntryID> PoseSequence
 
-struct Data
+struct ConfigData
 {
 	1: required SchemaVersionID schemaVersionId
 	# Removed by mutator

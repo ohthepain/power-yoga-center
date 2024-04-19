@@ -1,15 +1,9 @@
 #! /bin/sh
 
-echo "Hi from `basename $0`"
-
 EXCELDIR=`pwd`
-CONFIGDIR="$EXCEL/.."
-THRIFTDIR="$CONFIGDIR/Thrift"
+CONFIGDIR="$EXCELDIR/.."
 UTILSDIR="$CONFIGDIR/Utils"
-PROJECTDIR="$CONFIGDIR/.."
-DATADIR=PROJECTDIR
 CONVERT="$UTILSDIR/convert.py"
 
-ls "$EXCELDIR"
+python3 $CONVERT Yoga.Config --thrift_protocol TJSONProtocol --gen_py ../Thrift/gen-py --output ../../config.bin --class_name "ConfigData"
 
-python $(CONVERT)

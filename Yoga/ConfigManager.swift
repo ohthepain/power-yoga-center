@@ -47,7 +47,7 @@ class ConfigManager {
         return ConfigManager.instance
     }
     
-    public var data: Data
+    public var data: ConfigData
     public var ready: Bool
     
     private init() {
@@ -73,14 +73,13 @@ class ConfigManager {
             let sourcePath = Bundle.main.url(forResource:"config", withExtension: "bin")!
             let url = FileManager.default.getDocumentsDirectory().appendingPathComponent("config.bin")
             FileManager.default.secureCopyItem(at:sourcePath, to:url)
-            print("lets load")
             let path = url.path
             let transport = try TFileTransport(filename: path)
             let proto = TJSONProtocol(on: transport)
-            try self.data = Data.read(from: proto)
+            try self.data = ConfigData.read(from: proto)
             ready = true
         }  catch {
-            self.data = Data(schemaVersionId: 0)
+            self.data = ConfigData(schemaVersionId: 0)
             print(error)
         }
 //        fclose(fp);

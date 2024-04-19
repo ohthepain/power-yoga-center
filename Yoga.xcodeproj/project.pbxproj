@@ -13,7 +13,6 @@
 		0F2D53ED21F996B900C38838 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2D53EC21F996B900C38838 /* libz.1.2.8.tbd */; };
 		0F36751421F6DECC007A18D5 /* PoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F36751321F6DECC007A18D5 /* PoseViewController.swift */; };
 		0F8EA30221F0984100E0F4E7 /* config.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA30121F0984000E0F4E7 /* config.bin */; };
-		0F8EA3A721F0C1FB00E0F4E7 /* Config.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3A621F0C1FB00E0F4E7 /* Config.mm */; };
 		0F8EA49621F1BEBF00E0F4E7 /* SessionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA49521F1BEBF00E0F4E7 /* SessionListTableViewCell.swift */; };
 		0F8EA49A21F1E6C500E0F4E7 /* SessionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA49921F1E6C500E0F4E7 /* SessionListTableViewController.swift */; };
 		0F8EA49C21F1F21100E0F4E7 /* Utilties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA49B21F1F21100E0F4E7 /* Utilties.m */; };
@@ -29,8 +28,9 @@
 		0FA2171C21F849AF0005D66C /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2171B21F849AF0005D66C /* Exceptions.swift */; };
 		0FA2172021F876300005D66C /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2171F21F876300005D66C /* SettingsMenu.swift */; };
 		0FB889F02BD0DC9800187B97 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB889EF2BD0DC9800187B97 /* ConfigManager.swift */; };
-		0FB889FC2BD0FFD800187B97 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB889FA2BD0FFD700187B97 /* Config.swift */; };
-		0FB889FD2BD0FFD800187B97 /* Config+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB889FB2BD0FFD800187B97 /* Config+Exts.swift */; };
+		0FFB11112BD2934C00F5C120 /* Config in Resources */ = {isa = PBXBuildFile; fileRef = 0FFB11102BD2934C00F5C120 /* Config */; };
+		0FFB11142BD2A42800F5C120 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB11122BD2A42800F5C120 /* Config.swift */; };
+		0FFB11152BD2A42800F5C120 /* Config+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB11132BD2A42800F5C120 /* Config+Exts.swift */; };
 		8B2C2DC533BFBEFD68882F92 /* Pods_Yoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E645476A5BB99107AC884329 /* Pods_Yoga.framework */; };
 		DA887E031E9A8D1A001F937F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA887E021E9A8D1A001F937F /* AppDelegate.swift */; };
 		DA887E051E9A8D1A001F937F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA887E041E9A8D1A001F937F /* FirstViewController.swift */; };
@@ -54,9 +54,6 @@
 		0F36751321F6DECC007A18D5 /* PoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseViewController.swift; sourceTree = "<group>"; };
 		0F8EA30121F0984000E0F4E7 /* config.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = config.bin; sourceTree = "<group>"; };
 		0F8EA30321F09AF500E0F4E7 /* Yoga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Yoga-Bridging-Header.h"; sourceTree = "<group>"; };
-		0F8EA30521F09AF600E0F4E7 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		0F8EA3A521F0C18900E0F4E7 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Config; sourceTree = "<group>"; };
-		0F8EA3A621F0C1FB00E0F4E7 /* Config.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Config.mm; sourceTree = "<group>"; };
 		0F8EA48E21F1078D00E0F4E7 /* zlib.d */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.dtrace; name = zlib.d; path = thriftbase/lib/d/src/thrift/transport/zlib.d; sourceTree = "<group>"; };
 		0F8EA49021F1080500E0F4E7 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = "../donuts/frameworks/cocos2d-x/external/zlib/prebuilt/mac/libz.a"; sourceTree = "<group>"; };
 		0F8EA49221F1083000E0F4E7 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = thriftbase/lib/d/src/thrift/transport/libz.a; sourceTree = "<group>"; };
@@ -76,8 +73,9 @@
 		0FA2171B21F849AF0005D66C /* Exceptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exceptions.swift; sourceTree = "<group>"; };
 		0FA2171F21F876300005D66C /* SettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
 		0FB889EF2BD0DC9800187B97 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
-		0FB889FA2BD0FFD700187B97 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = "Yoga/Config/Thrift/gen-swift/Config.swift"; sourceTree = "<group>"; };
-		0FB889FB2BD0FFD800187B97 /* Config+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Config+Exts.swift"; path = "Yoga/Config/Thrift/gen-swift/Config+Exts.swift"; sourceTree = "<group>"; };
+		0FFB11102BD2934C00F5C120 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Config; sourceTree = "<group>"; };
+		0FFB11122BD2A42800F5C120 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = "Config/Thrift/gen-swift/Config.swift"; sourceTree = SOURCE_ROOT; };
+		0FFB11132BD2A42800F5C120 /* Config+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Config+Exts.swift"; path = "Config/Thrift/gen-swift/Config+Exts.swift"; sourceTree = SOURCE_ROOT; };
 		44548DE45F219BCA60CC109A /* Pods-Yoga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoga.release.xcconfig"; path = "Target Support Files/Pods-Yoga/Pods-Yoga.release.xcconfig"; sourceTree = "<group>"; };
 		DA887DFF1E9A8D1A001F937F /* Yoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA887E021E9A8D1A001F937F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,11 +136,10 @@
 		DA887DF61E9A8D1A001F937F = {
 			isa = PBXGroup;
 			children = (
-				0FB889FA2BD0FFD700187B97 /* Config.swift */,
-				0FB889FB2BD0FFD800187B97 /* Config+Exts.swift */,
 				0F8EA30121F0984000E0F4E7 /* config.bin */,
 				0F8EA49E21F235DE00E0F4E7 /* Fonts */,
 				DAEE0CA91ED1B74900C34A59 /* Sound */,
+				0FFB11102BD2934C00F5C120 /* Config */,
 				DA887E011E9A8D1A001F937F /* Yoga */,
 				DA887E001E9A8D1A001F937F /* Products */,
 				0F8EA48D21F1078C00E0F4E7 /* Frameworks */,
@@ -161,10 +158,9 @@
 		DA887E011E9A8D1A001F937F /* Yoga */ = {
 			isa = PBXGroup;
 			children = (
-				0F8EA3A521F0C18900E0F4E7 /* Config */,
+				0FFB11122BD2A42800F5C120 /* Config.swift */,
+				0FFB11132BD2A42800F5C120 /* Config+Exts.swift */,
 				DA887E021E9A8D1A001F937F /* AppDelegate.swift */,
-				0F8EA30521F09AF600E0F4E7 /* Config.h */,
-				0F8EA3A621F0C1FB00E0F4E7 /* Config.mm */,
 				0FB889EF2BD0DC9800187B97 /* ConfigManager.swift */,
 				0FA2171B21F849AF0005D66C /* Exceptions.swift */,
 				DA887E041E9A8D1A001F937F /* FirstViewController.swift */,
@@ -270,6 +266,7 @@
 				DA887E0F1E9A8D1A001F937F /* LaunchScreen.storyboard in Resources */,
 				0F8EA4A721F235DE00E0F4E7 /* calibril.ttf in Resources */,
 				DA887E0C1E9A8D1A001F937F /* Assets.xcassets in Resources */,
+				0FFB11112BD2934C00F5C120 /* Config in Resources */,
 				DAEE0CAA1ED1B74900C34A59 /* Sound in Resources */,
 				0F8EA4A921F235DE00E0F4E7 /* calibri.ttf in Resources */,
 				DA887E0A1E9A8D1A001F937F /* Main.storyboard in Resources */,
@@ -326,22 +323,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F8EA3A721F0C1FB00E0F4E7 /* Config.mm in Sources */,
 				0F36751421F6DECC007A18D5 /* PoseViewController.swift in Sources */,
 				0F99B12C21F62BD000F7EB15 /* Utilities.swift in Sources */,
 				0F8EA49621F1BEBF00E0F4E7 /* SessionListTableViewCell.swift in Sources */,
-				0FB889FC2BD0FFD800187B97 /* Config.swift in Sources */,
 				DA887E031E9A8D1A001F937F /* AppDelegate.swift in Sources */,
 				0F01D62121EE17EA008BCD76 /* RatingControl.swift in Sources */,
 				0F01D61F21EDFE62008BCD76 /* SessionDetailHeaderTableViewCell.swift in Sources */,
 				0F99B12E21F6365300F7EB15 /* UserData.swift in Sources */,
 				0F01D5B821ED9E81008BCD76 /* PoseEntryTableViewCell.swift in Sources */,
 				0FA2171C21F849AF0005D66C /* Exceptions.swift in Sources */,
-				0FB889FD2BD0FFD800187B97 /* Config+Exts.swift in Sources */,
 				0F8EA49A21F1E6C500E0F4E7 /* SessionListTableViewController.swift in Sources */,
 				0F8EA49C21F1F21100E0F4E7 /* Utilties.m in Sources */,
+				0FFB11152BD2A42800F5C120 /* Config+Exts.swift in Sources */,
 				0FA2172021F876300005D66C /* SettingsMenu.swift in Sources */,
 				0FB889F02BD0DC9800187B97 /* ConfigManager.swift in Sources */,
+				0FFB11142BD2A42800F5C120 /* Config.swift in Sources */,
 				0F8EA4AD21F30D1500E0F4E7 /* SessionDetailTableViewController.swift in Sources */,
 				DA887E051E9A8D1A001F937F /* FirstViewController.swift in Sources */,
 			);
