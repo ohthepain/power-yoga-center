@@ -10,7 +10,7 @@ import UIKit
 
 class SessionListTableViewController: UITableViewController {
     
-    private var data: Data?
+    private var data: ConfigData?
 
     override func viewDidLoad() {
         super.viewDidLoad()

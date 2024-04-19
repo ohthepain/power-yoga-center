@@ -107,7 +107,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 			detailedAudioTask = DispatchWorkItem {
                 let detailAudioFilename = ConfigManager.getInstance().data.sessions![Int(UserPreferences.GetSelectedSessionNum())].poses![Int(self.currentPoseNum)].detailAudioFilename
 				if self.running && detailAudioFilename != "" {
-					self.PlaySound(soundfile: detailAudioFilename)
+					self.PlaySound(soundfile: detailAudioFilename!)
 					self.didPlayDetail = true
 				}
 			}
@@ -219,7 +219,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 				detailedAudioTask?.cancel()
 				detailedAudioTask = DispatchWorkItem {
 					if self.running {
-						self.PlaySound(soundfile: shortAudioFilename)
+						self.PlaySound(soundfile: shortAudioFilename!)
 					}
 				}
 				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2, execute: detailedAudioTask!)
