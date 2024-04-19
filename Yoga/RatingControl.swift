@@ -67,7 +67,7 @@ class RatingControl: UIStackView {
 		}
 	}
 	
-	func ratingButtonTapped(button: UIButton) {
+    @objc func ratingButtonTapped(button: UIButton) {
 		print("Tapped rating button 👍")
 	}
 }

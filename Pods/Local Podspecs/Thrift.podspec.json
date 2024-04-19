@@ -1,0 +1,23 @@
+{
+  "name": "Thrift",
+  "version": "0.21.0",
+  "summary": "Apache Thrift is a lightweight, language-independent software stack with an associated code generation mechanism for RPC.",
+  "description": "The Apache Thrift scalable cross-language software framework for networked services development combines a software stack with a code generation engine to build services that work efficiently and seamlessly between many programming languages.",
+  "homepage": "https://thrift.apache.org",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0"
+  },
+  "authors": {
+    "Apache Thrift Developers": "dev@thrift.apache.org"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10"
+  },
+  "source": {
+    "git": "https://github.com/apache/thrift.git",
+    "tag": "v0.21.0"
+  },
+  "source_files": "lib/swift/Sources/*.swift"
+}

@@ -10,43 +10,10 @@
 		0F01D5B821ED9E81008BCD76 /* PoseEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01D5B721ED9E81008BCD76 /* PoseEntryTableViewCell.swift */; };
 		0F01D61F21EDFE62008BCD76 /* SessionDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01D61E21EDFE62008BCD76 /* SessionDetailHeaderTableViewCell.swift */; };
 		0F01D62121EE17EA008BCD76 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01D62021EE17EA008BCD76 /* RatingControl.swift */; };
-		0F2D53E721F8C76500C38838 /* TZlibTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3B221F0CF5500E0F4E7 /* TZlibTransport.cpp */; };
-		0F2D53E821F8C76A00C38838 /* THeaderTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3C421F0CF5500E0F4E7 /* THeaderTransport.cpp */; };
 		0F2D53ED21F996B900C38838 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2D53EC21F996B900C38838 /* libz.1.2.8.tbd */; };
 		0F36751421F6DECC007A18D5 /* PoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F36751321F6DECC007A18D5 /* PoseViewController.swift */; };
 		0F8EA30221F0984100E0F4E7 /* config.bin in Resources */ = {isa = PBXBuildFile; fileRef = 0F8EA30121F0984000E0F4E7 /* config.bin */; };
-		0F8EA3A321F0BD4400E0F4E7 /* Config_constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3A021F0BD4400E0F4E7 /* Config_constants.cpp */; };
-		0F8EA3A421F0BD4400E0F4E7 /* Config_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3A121F0BD4400E0F4E7 /* Config_types.cpp */; };
 		0F8EA3A721F0C1FB00E0F4E7 /* Config.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3A621F0C1FB00E0F4E7 /* Config.mm */; };
-		0F8EA45021F0CF5600E0F4E7 /* TBufferTransports.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3B821F0CF5500E0F4E7 /* TBufferTransports.cpp */; };
-		0F8EA45121F0CF5600E0F4E7 /* TPipeServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3BC21F0CF5500E0F4E7 /* TPipeServer.cpp */; };
-		0F8EA45421F0CF5600E0F4E7 /* TFDTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3C221F0CF5500E0F4E7 /* TFDTransport.cpp */; };
-		0F8EA45621F0CF5600E0F4E7 /* TSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3C621F0CF5500E0F4E7 /* TSocket.cpp */; };
-		0F8EA45721F0CF5600E0F4E7 /* TTransportUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3C821F0CF5500E0F4E7 /* TTransportUtils.cpp */; };
-		0F8EA45B21F0CF5600E0F4E7 /* TSocketPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3D021F0CF5500E0F4E7 /* TSocketPool.cpp */; };
-		0F8EA45C21F0CF5600E0F4E7 /* TFileTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3D121F0CF5500E0F4E7 /* TFileTransport.cpp */; };
-		0F8EA45D21F0CF5600E0F4E7 /* TTransportException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3D421F0CF5500E0F4E7 /* TTransportException.cpp */; };
-		0F8EA45E21F0CF5600E0F4E7 /* TPipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3D721F0CF5500E0F4E7 /* TPipe.cpp */; };
-		0F8EA45F21F0CF5600E0F4E7 /* TSimpleFileTransport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3D821F0CF5500E0F4E7 /* TSimpleFileTransport.cpp */; };
-		0F8EA46121F0CF5600E0F4E7 /* PeekProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA3DE21F0CF5500E0F4E7 /* PeekProcessor.cpp */; };
-		0F8EA47121F0CF5600E0F4E7 /* TDebugProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA40621F0CF5500E0F4E7 /* TDebugProtocol.cpp */; };
-		0F8EA47321F0CF5600E0F4E7 /* TBase64Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41121F0CF5500E0F4E7 /* TBase64Utils.cpp */; };
-		0F8EA47421F0CF5600E0F4E7 /* THeaderProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41221F0CF5500E0F4E7 /* THeaderProtocol.cpp */; };
-		0F8EA47521F0CF5600E0F4E7 /* TMultiplexedProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41421F0CF5500E0F4E7 /* TMultiplexedProtocol.cpp */; };
-		0F8EA47621F0CF5600E0F4E7 /* TProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41521F0CF5500E0F4E7 /* TProtocol.cpp */; };
-		0F8EA47721F0CF5600E0F4E7 /* TJSONProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41921F0CF5500E0F4E7 /* TJSONProtocol.cpp */; };
-		0F8EA47821F0CF5600E0F4E7 /* TBinaryProtocol.tcc in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41A21F0CF5500E0F4E7 /* TBinaryProtocol.tcc */; };
-		0F8EA47921F0CF5600E0F4E7 /* TOutput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41B21F0CF5500E0F4E7 /* TOutput.cpp */; };
-		0F8EA47A21F0CF5600E0F4E7 /* TimerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41D21F0CF5500E0F4E7 /* TimerManager.cpp */; };
-		0F8EA47C21F0CF5600E0F4E7 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA41F21F0CF5500E0F4E7 /* Util.cpp */; };
-		0F8EA47E21F0CF5600E0F4E7 /* Monitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA42321F0CF5500E0F4E7 /* Monitor.cpp */; };
-		0F8EA48121F0CF5600E0F4E7 /* PosixThreadFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA42821F0CF5500E0F4E7 /* PosixThreadFactory.cpp */; };
-		0F8EA48221F0CF5600E0F4E7 /* ThreadManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA42B21F0CF5500E0F4E7 /* ThreadManager.cpp */; };
-		0F8EA48321F0CF5600E0F4E7 /* StdThreadFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA42C21F0CF5500E0F4E7 /* StdThreadFactory.cpp */; };
-		0F8EA48521F0CF5600E0F4E7 /* BoostThreadFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA43321F0CF5500E0F4E7 /* BoostThreadFactory.cpp */; };
-		0F8EA48621F0CF5600E0F4E7 /* VirtualProfiling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA43821F0CF5500E0F4E7 /* VirtualProfiling.cpp */; };
-		0F8EA48C21F0CF5600E0F4E7 /* TApplicationException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA44A21F0CF5500E0F4E7 /* TApplicationException.cpp */; };
-		0F8EA49421F1092F00E0F4E7 /* StdMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA42521F0CF5500E0F4E7 /* StdMutex.cpp */; };
 		0F8EA49621F1BEBF00E0F4E7 /* SessionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA49521F1BEBF00E0F4E7 /* SessionListTableViewCell.swift */; };
 		0F8EA49A21F1E6C500E0F4E7 /* SessionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA49921F1E6C500E0F4E7 /* SessionListTableViewController.swift */; };
 		0F8EA49C21F1F21100E0F4E7 /* Utilties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA49B21F1F21100E0F4E7 /* Utilties.m */; };
@@ -61,6 +28,10 @@
 		0F99B12E21F6365300F7EB15 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99B12D21F6365300F7EB15 /* UserData.swift */; };
 		0FA2171C21F849AF0005D66C /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2171B21F849AF0005D66C /* Exceptions.swift */; };
 		0FA2172021F876300005D66C /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2171F21F876300005D66C /* SettingsMenu.swift */; };
+		0FB889F02BD0DC9800187B97 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB889EF2BD0DC9800187B97 /* ConfigManager.swift */; };
+		0FB889FC2BD0FFD800187B97 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB889FA2BD0FFD700187B97 /* Config.swift */; };
+		0FB889FD2BD0FFD800187B97 /* Config+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB889FB2BD0FFD800187B97 /* Config+Exts.swift */; };
+		8B2C2DC533BFBEFD68882F92 /* Pods_Yoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E645476A5BB99107AC884329 /* Pods_Yoga.framework */; };
 		DA887E031E9A8D1A001F937F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA887E021E9A8D1A001F937F /* AppDelegate.swift */; };
 		DA887E051E9A8D1A001F937F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA887E041E9A8D1A001F937F /* FirstViewController.swift */; };
 		DA887E0A1E9A8D1A001F937F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA887E081E9A8D1A001F937F /* Main.storyboard */; };
@@ -84,121 +55,8 @@
 		0F8EA30121F0984000E0F4E7 /* config.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = config.bin; sourceTree = "<group>"; };
 		0F8EA30321F09AF500E0F4E7 /* Yoga-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Yoga-Bridging-Header.h"; sourceTree = "<group>"; };
 		0F8EA30521F09AF600E0F4E7 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		0F8EA39F21F0BD4400E0F4E7 /* Config_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config_types.h; sourceTree = "<group>"; };
-		0F8EA3A021F0BD4400E0F4E7 /* Config_constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Config_constants.cpp; sourceTree = "<group>"; };
-		0F8EA3A121F0BD4400E0F4E7 /* Config_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Config_types.cpp; sourceTree = "<group>"; };
-		0F8EA3A221F0BD4400E0F4E7 /* Config_constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config_constants.h; sourceTree = "<group>"; };
 		0F8EA3A521F0C18900E0F4E7 /* Config */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Config; sourceTree = "<group>"; };
 		0F8EA3A621F0C1FB00E0F4E7 /* Config.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Config.mm; sourceTree = "<group>"; };
-		0F8EA3AC21F0CF5500E0F4E7 /* TSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocket.h; sourceTree = "<group>"; };
-		0F8EA3AD21F0CF5500E0F4E7 /* TFileTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFileTransport.h; sourceTree = "<group>"; };
-		0F8EA3AE21F0CF5500E0F4E7 /* THttpServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = THttpServer.cpp; sourceTree = "<group>"; };
-		0F8EA3AF21F0CF5500E0F4E7 /* TTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransport.h; sourceTree = "<group>"; };
-		0F8EA3B021F0CF5500E0F4E7 /* PlatformSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformSocket.h; sourceTree = "<group>"; };
-		0F8EA3B121F0CF5500E0F4E7 /* TSimpleFileTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSimpleFileTransport.h; sourceTree = "<group>"; };
-		0F8EA3B221F0CF5500E0F4E7 /* TZlibTransport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TZlibTransport.cpp; sourceTree = "<group>"; };
-		0F8EA3B321F0CF5500E0F4E7 /* TSSLSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSLSocket.h; sourceTree = "<group>"; };
-		0F8EA3B421F0CF5500E0F4E7 /* TSSLSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSSLSocket.cpp; sourceTree = "<group>"; };
-		0F8EA3B521F0CF5500E0F4E7 /* TTransportUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransportUtils.h; sourceTree = "<group>"; };
-		0F8EA3B621F0CF5500E0F4E7 /* TServerTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TServerTransport.h; sourceTree = "<group>"; };
-		0F8EA3B721F0CF5500E0F4E7 /* TNonblockingServerSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNonblockingServerSocket.h; sourceTree = "<group>"; };
-		0F8EA3B821F0CF5500E0F4E7 /* TBufferTransports.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBufferTransports.cpp; sourceTree = "<group>"; };
-		0F8EA3B921F0CF5500E0F4E7 /* TNonblockingServerTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNonblockingServerTransport.h; sourceTree = "<group>"; };
-		0F8EA3BA21F0CF5500E0F4E7 /* TBufferTransports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBufferTransports.h; sourceTree = "<group>"; };
-		0F8EA3BB21F0CF5500E0F4E7 /* THttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THttpServer.h; sourceTree = "<group>"; };
-		0F8EA3BC21F0CF5500E0F4E7 /* TPipeServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TPipeServer.cpp; sourceTree = "<group>"; };
-		0F8EA3BD21F0CF5500E0F4E7 /* THttpTransport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = THttpTransport.cpp; sourceTree = "<group>"; };
-		0F8EA3BE21F0CF5500E0F4E7 /* TTransportException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransportException.h; sourceTree = "<group>"; };
-		0F8EA3BF21F0CF5500E0F4E7 /* TSSLServerSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSSLServerSocket.cpp; sourceTree = "<group>"; };
-		0F8EA3C021F0CF5500E0F4E7 /* TSocketPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSocketPool.h; sourceTree = "<group>"; };
-		0F8EA3C121F0CF5500E0F4E7 /* TNonblockingSSLServerSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNonblockingSSLServerSocket.h; sourceTree = "<group>"; };
-		0F8EA3C221F0CF5500E0F4E7 /* TFDTransport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TFDTransport.cpp; sourceTree = "<group>"; };
-		0F8EA3C321F0CF5500E0F4E7 /* THttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THttpClient.h; sourceTree = "<group>"; };
-		0F8EA3C421F0CF5500E0F4E7 /* THeaderTransport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = THeaderTransport.cpp; sourceTree = "<group>"; };
-		0F8EA3C521F0CF5500E0F4E7 /* TPipeServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPipeServer.h; sourceTree = "<group>"; };
-		0F8EA3C621F0CF5500E0F4E7 /* TSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSocket.cpp; sourceTree = "<group>"; };
-		0F8EA3C721F0CF5500E0F4E7 /* THttpTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THttpTransport.h; sourceTree = "<group>"; };
-		0F8EA3C821F0CF5500E0F4E7 /* TTransportUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTransportUtils.cpp; sourceTree = "<group>"; };
-		0F8EA3C921F0CF5500E0F4E7 /* THttpClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = THttpClient.cpp; sourceTree = "<group>"; };
-		0F8EA3CA21F0CF5500E0F4E7 /* TVirtualTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVirtualTransport.h; sourceTree = "<group>"; };
-		0F8EA3CB21F0CF5500E0F4E7 /* TFDTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFDTransport.h; sourceTree = "<group>"; };
-		0F8EA3CC21F0CF5500E0F4E7 /* TServerSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TServerSocket.h; sourceTree = "<group>"; };
-		0F8EA3CD21F0CF5500E0F4E7 /* TNonblockingServerSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TNonblockingServerSocket.cpp; sourceTree = "<group>"; };
-		0F8EA3CE21F0CF5500E0F4E7 /* TServerSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TServerSocket.cpp; sourceTree = "<group>"; };
-		0F8EA3CF21F0CF5500E0F4E7 /* TShortReadTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TShortReadTransport.h; sourceTree = "<group>"; };
-		0F8EA3D021F0CF5500E0F4E7 /* TSocketPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSocketPool.cpp; sourceTree = "<group>"; };
-		0F8EA3D121F0CF5500E0F4E7 /* TFileTransport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TFileTransport.cpp; sourceTree = "<group>"; };
-		0F8EA3D221F0CF5500E0F4E7 /* TSSLServerSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSSLServerSocket.h; sourceTree = "<group>"; };
-		0F8EA3D321F0CF5500E0F4E7 /* TPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPipe.h; sourceTree = "<group>"; };
-		0F8EA3D421F0CF5500E0F4E7 /* TTransportException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTransportException.cpp; sourceTree = "<group>"; };
-		0F8EA3D521F0CF5500E0F4E7 /* THeaderTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THeaderTransport.h; sourceTree = "<group>"; };
-		0F8EA3D621F0CF5500E0F4E7 /* TZlibTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZlibTransport.h; sourceTree = "<group>"; };
-		0F8EA3D721F0CF5500E0F4E7 /* TPipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TPipe.cpp; sourceTree = "<group>"; };
-		0F8EA3D821F0CF5500E0F4E7 /* TSimpleFileTransport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TSimpleFileTransport.cpp; sourceTree = "<group>"; };
-		0F8EA3D921F0CF5500E0F4E7 /* TNonblockingSSLServerSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TNonblockingSSLServerSocket.cpp; sourceTree = "<group>"; };
-		0F8EA3DA21F0CF5500E0F4E7 /* Thrift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thrift.h; sourceTree = "<group>"; };
-		0F8EA3DB21F0CF5500E0F4E7 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		0F8EA3DC21F0CF5500E0F4E7 /* TDispatchProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDispatchProcessor.h; sourceTree = "<group>"; };
-		0F8EA3DE21F0CF5500E0F4E7 /* PeekProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PeekProcessor.cpp; sourceTree = "<group>"; };
-		0F8EA3DF21F0CF5500E0F4E7 /* TMultiplexedProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMultiplexedProcessor.h; sourceTree = "<group>"; };
-		0F8EA3E021F0CF5500E0F4E7 /* PeekProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeekProcessor.h; sourceTree = "<group>"; };
-		0F8EA3E121F0CF5500E0F4E7 /* StatsProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsProcessor.h; sourceTree = "<group>"; };
-		0F8EA40621F0CF5500E0F4E7 /* TDebugProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TDebugProtocol.cpp; sourceTree = "<group>"; };
-		0F8EA40721F0CF5500E0F4E7 /* TProtocolTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolTap.h; sourceTree = "<group>"; };
-		0F8EA40821F0CF5500E0F4E7 /* TCompactProtocol.tcc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCompactProtocol.tcc; sourceTree = "<group>"; };
-		0F8EA40921F0CF5500E0F4E7 /* TProtocolDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolDecorator.h; sourceTree = "<group>"; };
-		0F8EA40A21F0CF5500E0F4E7 /* TProtocolException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolException.h; sourceTree = "<group>"; };
-		0F8EA40B21F0CF5500E0F4E7 /* TBinaryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBinaryProtocol.h; sourceTree = "<group>"; };
-		0F8EA40C21F0CF5500E0F4E7 /* TVirtualProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVirtualProtocol.h; sourceTree = "<group>"; };
-		0F8EA40D21F0CF5500E0F4E7 /* TCompactProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCompactProtocol.h; sourceTree = "<group>"; };
-		0F8EA40E21F0CF5500E0F4E7 /* TBase64Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBase64Utils.h; sourceTree = "<group>"; };
-		0F8EA40F21F0CF5500E0F4E7 /* TProtocolTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolTypes.h; sourceTree = "<group>"; };
-		0F8EA41021F0CF5500E0F4E7 /* TMultiplexedProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMultiplexedProtocol.h; sourceTree = "<group>"; };
-		0F8EA41121F0CF5500E0F4E7 /* TBase64Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBase64Utils.cpp; sourceTree = "<group>"; };
-		0F8EA41221F0CF5500E0F4E7 /* THeaderProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = THeaderProtocol.cpp; sourceTree = "<group>"; };
-		0F8EA41321F0CF5500E0F4E7 /* THeaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THeaderProtocol.h; sourceTree = "<group>"; };
-		0F8EA41421F0CF5500E0F4E7 /* TMultiplexedProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMultiplexedProtocol.cpp; sourceTree = "<group>"; };
-		0F8EA41521F0CF5500E0F4E7 /* TProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TProtocol.cpp; sourceTree = "<group>"; };
-		0F8EA41621F0CF5500E0F4E7 /* TProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocol.h; sourceTree = "<group>"; };
-		0F8EA41721F0CF5500E0F4E7 /* TJSONProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJSONProtocol.h; sourceTree = "<group>"; };
-		0F8EA41821F0CF5500E0F4E7 /* TDebugProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDebugProtocol.h; sourceTree = "<group>"; };
-		0F8EA41921F0CF5500E0F4E7 /* TJSONProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TJSONProtocol.cpp; sourceTree = "<group>"; };
-		0F8EA41A21F0CF5500E0F4E7 /* TBinaryProtocol.tcc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TBinaryProtocol.tcc; sourceTree = "<group>"; };
-		0F8EA41B21F0CF5500E0F4E7 /* TOutput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TOutput.cpp; sourceTree = "<group>"; };
-		0F8EA41D21F0CF5500E0F4E7 /* TimerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimerManager.cpp; sourceTree = "<group>"; };
-		0F8EA41E21F0CF5500E0F4E7 /* Mutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mutex.cpp; sourceTree = "<group>"; };
-		0F8EA41F21F0CF5500E0F4E7 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
-		0F8EA42021F0CF5500E0F4E7 /* FunctionRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionRunner.h; sourceTree = "<group>"; };
-		0F8EA42121F0CF5500E0F4E7 /* BoostMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoostMutex.cpp; sourceTree = "<group>"; };
-		0F8EA42221F0CF5500E0F4E7 /* ThreadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadManager.h; sourceTree = "<group>"; };
-		0F8EA42321F0CF5500E0F4E7 /* Monitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Monitor.cpp; sourceTree = "<group>"; };
-		0F8EA42421F0CF5500E0F4E7 /* BoostMonitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoostMonitor.cpp; sourceTree = "<group>"; };
-		0F8EA42521F0CF5500E0F4E7 /* StdMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StdMutex.cpp; sourceTree = "<group>"; };
-		0F8EA42621F0CF5500E0F4E7 /* TimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerManager.h; sourceTree = "<group>"; };
-		0F8EA42721F0CF5500E0F4E7 /* PosixThreadFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosixThreadFactory.h; sourceTree = "<group>"; };
-		0F8EA42821F0CF5500E0F4E7 /* PosixThreadFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PosixThreadFactory.cpp; sourceTree = "<group>"; };
-		0F8EA42921F0CF5500E0F4E7 /* Monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monitor.h; sourceTree = "<group>"; };
-		0F8EA42A21F0CF5500E0F4E7 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
-		0F8EA42B21F0CF5500E0F4E7 /* ThreadManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ThreadManager.cpp; sourceTree = "<group>"; };
-		0F8EA42C21F0CF5500E0F4E7 /* StdThreadFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StdThreadFactory.cpp; sourceTree = "<group>"; };
-		0F8EA42D21F0CF5500E0F4E7 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		0F8EA42E21F0CF5500E0F4E7 /* StdMonitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StdMonitor.cpp; sourceTree = "<group>"; };
-		0F8EA42F21F0CF5500E0F4E7 /* BoostThreadFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoostThreadFactory.h; sourceTree = "<group>"; };
-		0F8EA43021F0CF5500E0F4E7 /* Mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mutex.h; sourceTree = "<group>"; };
-		0F8EA43121F0CF5500E0F4E7 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
-		0F8EA43221F0CF5500E0F4E7 /* PlatformThreadFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlatformThreadFactory.h; sourceTree = "<group>"; };
-		0F8EA43321F0CF5500E0F4E7 /* BoostThreadFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoostThreadFactory.cpp; sourceTree = "<group>"; };
-		0F8EA43421F0CF5500E0F4E7 /* StdThreadFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StdThreadFactory.h; sourceTree = "<group>"; };
-		0F8EA43521F0CF5500E0F4E7 /* TOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOutput.h; sourceTree = "<group>"; };
-		0F8EA43621F0CF5500E0F4E7 /* TProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProcessor.h; sourceTree = "<group>"; };
-		0F8EA43721F0CF5500E0F4E7 /* TBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBase.h; sourceTree = "<group>"; };
-		0F8EA43821F0CF5500E0F4E7 /* VirtualProfiling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VirtualProfiling.cpp; sourceTree = "<group>"; };
-		0F8EA43921F0CF5500E0F4E7 /* TToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TToString.h; sourceTree = "<group>"; };
-		0F8EA43A21F0CF5500E0F4E7 /* TLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLogging.h; sourceTree = "<group>"; };
-		0F8EA44921F0CF5500E0F4E7 /* thrift-config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "thrift-config.h"; sourceTree = "<group>"; };
-		0F8EA44A21F0CF5500E0F4E7 /* TApplicationException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TApplicationException.cpp; sourceTree = "<group>"; };
-		0F8EA44B21F0CF5500E0F4E7 /* stdcxx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdcxx.h; sourceTree = "<group>"; };
-		0F8EA44C21F0CF5500E0F4E7 /* TApplicationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TApplicationException.h; sourceTree = "<group>"; };
 		0F8EA48E21F1078D00E0F4E7 /* zlib.d */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.dtrace; name = zlib.d; path = thriftbase/lib/d/src/thrift/transport/zlib.d; sourceTree = "<group>"; };
 		0F8EA49021F1080500E0F4E7 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = "../donuts/frameworks/cocos2d-x/external/zlib/prebuilt/mac/libz.a"; sourceTree = "<group>"; };
 		0F8EA49221F1083000E0F4E7 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = thriftbase/lib/d/src/thrift/transport/libz.a; sourceTree = "<group>"; };
@@ -217,6 +75,10 @@
 		0F99B12D21F6365300F7EB15 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0FA2171B21F849AF0005D66C /* Exceptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exceptions.swift; sourceTree = "<group>"; };
 		0FA2171F21F876300005D66C /* SettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
+		0FB889EF2BD0DC9800187B97 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		0FB889FA2BD0FFD700187B97 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = "Yoga/Config/Thrift/gen-swift/Config.swift"; sourceTree = "<group>"; };
+		0FB889FB2BD0FFD800187B97 /* Config+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Config+Exts.swift"; path = "Yoga/Config/Thrift/gen-swift/Config+Exts.swift"; sourceTree = "<group>"; };
+		44548DE45F219BCA60CC109A /* Pods-Yoga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoga.release.xcconfig"; path = "Target Support Files/Pods-Yoga/Pods-Yoga.release.xcconfig"; sourceTree = "<group>"; };
 		DA887DFF1E9A8D1A001F937F /* Yoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA887E021E9A8D1A001F937F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA887E041E9A8D1A001F937F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +87,8 @@
 		DA887E0E1E9A8D1A001F937F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA887E101E9A8D1A001F937F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAEE0CA91ED1B74900C34A59 /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sound; path = Yoga/Sound; sourceTree = "<group>"; };
+		E645476A5BB99107AC884329 /* Pods_Yoga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yoga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA73DFCD676FD976AFBDF769 /* Pods-Yoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yoga.debug.xcconfig"; path = "Target Support Files/Pods-Yoga/Pods-Yoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,173 +97,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2D53ED21F996B900C38838 /* libz.1.2.8.tbd in Frameworks */,
+				8B2C2DC533BFBEFD68882F92 /* Pods_Yoga.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F8EA39E21F0BD4400E0F4E7 /* gen-cpp */ = {
-			isa = PBXGroup;
-			children = (
-				0F8EA39F21F0BD4400E0F4E7 /* Config_types.h */,
-				0F8EA3A021F0BD4400E0F4E7 /* Config_constants.cpp */,
-				0F8EA3A121F0BD4400E0F4E7 /* Config_types.cpp */,
-				0F8EA3A221F0BD4400E0F4E7 /* Config_constants.h */,
-			);
-			name = "gen-cpp";
-			path = "Config/Thrift/gen-cpp";
-			sourceTree = "<group>";
-		};
-		0F8EA3AA21F0CF5500E0F4E7 /* thrift */ = {
-			isa = PBXGroup;
-			children = (
-				0F8EA3AB21F0CF5500E0F4E7 /* transport */,
-				0F8EA3DD21F0CF5500E0F4E7 /* processor */,
-				0F8EA40521F0CF5500E0F4E7 /* protocol */,
-				0F8EA41B21F0CF5500E0F4E7 /* TOutput.cpp */,
-				0F8EA41C21F0CF5500E0F4E7 /* concurrency */,
-				0F8EA43521F0CF5500E0F4E7 /* TOutput.h */,
-				0F8EA43621F0CF5500E0F4E7 /* TProcessor.h */,
-				0F8EA43721F0CF5500E0F4E7 /* TBase.h */,
-				0F8EA43821F0CF5500E0F4E7 /* VirtualProfiling.cpp */,
-				0F8EA43921F0CF5500E0F4E7 /* TToString.h */,
-				0F8EA43A21F0CF5500E0F4E7 /* TLogging.h */,
-				0F8EA44921F0CF5500E0F4E7 /* thrift-config.h */,
-				0F8EA44A21F0CF5500E0F4E7 /* TApplicationException.cpp */,
-				0F8EA44B21F0CF5500E0F4E7 /* stdcxx.h */,
-				0F8EA44C21F0CF5500E0F4E7 /* TApplicationException.h */,
-			);
-			name = thrift;
-			path = thriftbase/lib/cpp/src/thrift;
-			sourceTree = "<group>";
-		};
-		0F8EA3AB21F0CF5500E0F4E7 /* transport */ = {
-			isa = PBXGroup;
-			children = (
-				0F8EA3AC21F0CF5500E0F4E7 /* TSocket.h */,
-				0F8EA3AD21F0CF5500E0F4E7 /* TFileTransport.h */,
-				0F8EA3AE21F0CF5500E0F4E7 /* THttpServer.cpp */,
-				0F8EA3AF21F0CF5500E0F4E7 /* TTransport.h */,
-				0F8EA3B021F0CF5500E0F4E7 /* PlatformSocket.h */,
-				0F8EA3B121F0CF5500E0F4E7 /* TSimpleFileTransport.h */,
-				0F8EA3B221F0CF5500E0F4E7 /* TZlibTransport.cpp */,
-				0F8EA3B321F0CF5500E0F4E7 /* TSSLSocket.h */,
-				0F8EA3B421F0CF5500E0F4E7 /* TSSLSocket.cpp */,
-				0F8EA3B521F0CF5500E0F4E7 /* TTransportUtils.h */,
-				0F8EA3B621F0CF5500E0F4E7 /* TServerTransport.h */,
-				0F8EA3B721F0CF5500E0F4E7 /* TNonblockingServerSocket.h */,
-				0F8EA3B821F0CF5500E0F4E7 /* TBufferTransports.cpp */,
-				0F8EA3B921F0CF5500E0F4E7 /* TNonblockingServerTransport.h */,
-				0F8EA3BA21F0CF5500E0F4E7 /* TBufferTransports.h */,
-				0F8EA3BB21F0CF5500E0F4E7 /* THttpServer.h */,
-				0F8EA3BC21F0CF5500E0F4E7 /* TPipeServer.cpp */,
-				0F8EA3BD21F0CF5500E0F4E7 /* THttpTransport.cpp */,
-				0F8EA3BE21F0CF5500E0F4E7 /* TTransportException.h */,
-				0F8EA3BF21F0CF5500E0F4E7 /* TSSLServerSocket.cpp */,
-				0F8EA3C021F0CF5500E0F4E7 /* TSocketPool.h */,
-				0F8EA3C121F0CF5500E0F4E7 /* TNonblockingSSLServerSocket.h */,
-				0F8EA3C221F0CF5500E0F4E7 /* TFDTransport.cpp */,
-				0F8EA3C321F0CF5500E0F4E7 /* THttpClient.h */,
-				0F8EA3C421F0CF5500E0F4E7 /* THeaderTransport.cpp */,
-				0F8EA3C521F0CF5500E0F4E7 /* TPipeServer.h */,
-				0F8EA3C621F0CF5500E0F4E7 /* TSocket.cpp */,
-				0F8EA3C721F0CF5500E0F4E7 /* THttpTransport.h */,
-				0F8EA3C821F0CF5500E0F4E7 /* TTransportUtils.cpp */,
-				0F8EA3C921F0CF5500E0F4E7 /* THttpClient.cpp */,
-				0F8EA3CA21F0CF5500E0F4E7 /* TVirtualTransport.h */,
-				0F8EA3CB21F0CF5500E0F4E7 /* TFDTransport.h */,
-				0F8EA3CC21F0CF5500E0F4E7 /* TServerSocket.h */,
-				0F8EA3CD21F0CF5500E0F4E7 /* TNonblockingServerSocket.cpp */,
-				0F8EA3CE21F0CF5500E0F4E7 /* TServerSocket.cpp */,
-				0F8EA3CF21F0CF5500E0F4E7 /* TShortReadTransport.h */,
-				0F8EA3D021F0CF5500E0F4E7 /* TSocketPool.cpp */,
-				0F8EA3D121F0CF5500E0F4E7 /* TFileTransport.cpp */,
-				0F8EA3D221F0CF5500E0F4E7 /* TSSLServerSocket.h */,
-				0F8EA3D321F0CF5500E0F4E7 /* TPipe.h */,
-				0F8EA3D421F0CF5500E0F4E7 /* TTransportException.cpp */,
-				0F8EA3D521F0CF5500E0F4E7 /* THeaderTransport.h */,
-				0F8EA3D621F0CF5500E0F4E7 /* TZlibTransport.h */,
-				0F8EA3D721F0CF5500E0F4E7 /* TPipe.cpp */,
-				0F8EA3D821F0CF5500E0F4E7 /* TSimpleFileTransport.cpp */,
-				0F8EA3D921F0CF5500E0F4E7 /* TNonblockingSSLServerSocket.cpp */,
-			);
-			path = transport;
-			sourceTree = "<group>";
-		};
-		0F8EA3DD21F0CF5500E0F4E7 /* processor */ = {
-			isa = PBXGroup;
-			children = (
-				0F8EA3DE21F0CF5500E0F4E7 /* PeekProcessor.cpp */,
-				0F8EA3DF21F0CF5500E0F4E7 /* TMultiplexedProcessor.h */,
-				0F8EA3E021F0CF5500E0F4E7 /* PeekProcessor.h */,
-				0F8EA3E121F0CF5500E0F4E7 /* StatsProcessor.h */,
-			);
-			path = processor;
-			sourceTree = "<group>";
-		};
-		0F8EA40521F0CF5500E0F4E7 /* protocol */ = {
-			isa = PBXGroup;
-			children = (
-				0F8EA40621F0CF5500E0F4E7 /* TDebugProtocol.cpp */,
-				0F8EA40721F0CF5500E0F4E7 /* TProtocolTap.h */,
-				0F8EA40821F0CF5500E0F4E7 /* TCompactProtocol.tcc */,
-				0F8EA40921F0CF5500E0F4E7 /* TProtocolDecorator.h */,
-				0F8EA40A21F0CF5500E0F4E7 /* TProtocolException.h */,
-				0F8EA40B21F0CF5500E0F4E7 /* TBinaryProtocol.h */,
-				0F8EA40C21F0CF5500E0F4E7 /* TVirtualProtocol.h */,
-				0F8EA40D21F0CF5500E0F4E7 /* TCompactProtocol.h */,
-				0F8EA40E21F0CF5500E0F4E7 /* TBase64Utils.h */,
-				0F8EA40F21F0CF5500E0F4E7 /* TProtocolTypes.h */,
-				0F8EA41021F0CF5500E0F4E7 /* TMultiplexedProtocol.h */,
-				0F8EA41121F0CF5500E0F4E7 /* TBase64Utils.cpp */,
-				0F8EA41221F0CF5500E0F4E7 /* THeaderProtocol.cpp */,
-				0F8EA41321F0CF5500E0F4E7 /* THeaderProtocol.h */,
-				0F8EA41421F0CF5500E0F4E7 /* TMultiplexedProtocol.cpp */,
-				0F8EA41521F0CF5500E0F4E7 /* TProtocol.cpp */,
-				0F8EA41621F0CF5500E0F4E7 /* TProtocol.h */,
-				0F8EA41721F0CF5500E0F4E7 /* TJSONProtocol.h */,
-				0F8EA41821F0CF5500E0F4E7 /* TDebugProtocol.h */,
-				0F8EA41921F0CF5500E0F4E7 /* TJSONProtocol.cpp */,
-				0F8EA41A21F0CF5500E0F4E7 /* TBinaryProtocol.tcc */,
-			);
-			path = protocol;
-			sourceTree = "<group>";
-		};
-		0F8EA41C21F0CF5500E0F4E7 /* concurrency */ = {
-			isa = PBXGroup;
-			children = (
-				0F8EA3DA21F0CF5500E0F4E7 /* Thrift.h */,
-				0F8EA3DB21F0CF5500E0F4E7 /* config.h */,
-				0F8EA3DC21F0CF5500E0F4E7 /* TDispatchProcessor.h */,
-				0F8EA41D21F0CF5500E0F4E7 /* TimerManager.cpp */,
-				0F8EA41E21F0CF5500E0F4E7 /* Mutex.cpp */,
-				0F8EA41F21F0CF5500E0F4E7 /* Util.cpp */,
-				0F8EA42021F0CF5500E0F4E7 /* FunctionRunner.h */,
-				0F8EA42121F0CF5500E0F4E7 /* BoostMutex.cpp */,
-				0F8EA42221F0CF5500E0F4E7 /* ThreadManager.h */,
-				0F8EA42321F0CF5500E0F4E7 /* Monitor.cpp */,
-				0F8EA42421F0CF5500E0F4E7 /* BoostMonitor.cpp */,
-				0F8EA42521F0CF5500E0F4E7 /* StdMutex.cpp */,
-				0F8EA42621F0CF5500E0F4E7 /* TimerManager.h */,
-				0F8EA42721F0CF5500E0F4E7 /* PosixThreadFactory.h */,
-				0F8EA42821F0CF5500E0F4E7 /* PosixThreadFactory.cpp */,
-				0F8EA42921F0CF5500E0F4E7 /* Monitor.h */,
-				0F8EA42A21F0CF5500E0F4E7 /* Thread.h */,
-				0F8EA42B21F0CF5500E0F4E7 /* ThreadManager.cpp */,
-				0F8EA42C21F0CF5500E0F4E7 /* StdThreadFactory.cpp */,
-				0F8EA42D21F0CF5500E0F4E7 /* Util.h */,
-				0F8EA42E21F0CF5500E0F4E7 /* StdMonitor.cpp */,
-				0F8EA42F21F0CF5500E0F4E7 /* BoostThreadFactory.h */,
-				0F8EA43021F0CF5500E0F4E7 /* Mutex.h */,
-				0F8EA43121F0CF5500E0F4E7 /* Exception.h */,
-				0F8EA43221F0CF5500E0F4E7 /* PlatformThreadFactory.h */,
-				0F8EA43321F0CF5500E0F4E7 /* BoostThreadFactory.cpp */,
-				0F8EA43421F0CF5500E0F4E7 /* StdThreadFactory.h */,
-			);
-			path = concurrency;
-			sourceTree = "<group>";
-		};
 		0F8EA48D21F1078C00E0F4E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +117,7 @@
 				0F2D53DC21F8C05D00C38838 /* libz.a */,
 				0F2D53DE21F8C0C700C38838 /* libz.a */,
 				0F8EA48E21F1078D00E0F4E7 /* zlib.d */,
+				E645476A5BB99107AC884329 /* Pods_Yoga.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -433,15 +138,15 @@
 		DA887DF61E9A8D1A001F937F = {
 			isa = PBXGroup;
 			children = (
+				0FB889FA2BD0FFD700187B97 /* Config.swift */,
+				0FB889FB2BD0FFD800187B97 /* Config+Exts.swift */,
 				0F8EA30121F0984000E0F4E7 /* config.bin */,
-				0F8EA3A521F0C18900E0F4E7 /* Config */,
 				0F8EA49E21F235DE00E0F4E7 /* Fonts */,
 				DAEE0CA91ED1B74900C34A59 /* Sound */,
-				0F8EA3AA21F0CF5500E0F4E7 /* thrift */,
-				0F8EA39E21F0BD4400E0F4E7 /* gen-cpp */,
 				DA887E011E9A8D1A001F937F /* Yoga */,
 				DA887E001E9A8D1A001F937F /* Products */,
 				0F8EA48D21F1078C00E0F4E7 /* Frameworks */,
+				E8ECA5CC603E5CDBF56647AA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -456,9 +161,11 @@
 		DA887E011E9A8D1A001F937F /* Yoga */ = {
 			isa = PBXGroup;
 			children = (
+				0F8EA3A521F0C18900E0F4E7 /* Config */,
 				DA887E021E9A8D1A001F937F /* AppDelegate.swift */,
 				0F8EA30521F09AF600E0F4E7 /* Config.h */,
 				0F8EA3A621F0C1FB00E0F4E7 /* Config.mm */,
+				0FB889EF2BD0DC9800187B97 /* ConfigManager.swift */,
 				0FA2171B21F849AF0005D66C /* Exceptions.swift */,
 				DA887E041E9A8D1A001F937F /* FirstViewController.swift */,
 				DA887E081E9A8D1A001F937F /* Main.storyboard */,
@@ -482,6 +189,15 @@
 			path = Yoga;
 			sourceTree = "<group>";
 		};
+		E8ECA5CC603E5CDBF56647AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA73DFCD676FD976AFBDF769 /* Pods-Yoga.debug.xcconfig */,
+				44548DE45F219BCA60CC109A /* Pods-Yoga.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -489,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA887E131E9A8D1A001F937F /* Build configuration list for PBXNativeTarget "Yoga" */;
 			buildPhases = (
+				81B2D217D997B161F3A99AF9 /* [CP] Check Pods Manifest.lock */,
 				DA887DFB1E9A8D1A001F937F /* Sources */,
 				DA887DFC1E9A8D1A001F937F /* Frameworks */,
 				DA887DFD1E9A8D1A001F937F /* Resources */,
+				178BF88FA2E6F71C055AE767 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -515,7 +233,7 @@
 					DA887DFE1E9A8D1A001F937F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = RPGSNMH65P;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -525,6 +243,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -559,59 +278,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		178BF88FA2E6F71C055AE767 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yoga/Pods-Yoga-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Thrift/Thrift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Thrift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yoga/Pods-Yoga-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81B2D217D997B161F3A99AF9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yoga-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DA887DFB1E9A8D1A001F937F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0F8EA3A721F0C1FB00E0F4E7 /* Config.mm in Sources */,
-				0F8EA45421F0CF5600E0F4E7 /* TFDTransport.cpp in Sources */,
-				0F8EA48C21F0CF5600E0F4E7 /* TApplicationException.cpp in Sources */,
-				0F8EA47521F0CF5600E0F4E7 /* TMultiplexedProtocol.cpp in Sources */,
-				0F8EA47721F0CF5600E0F4E7 /* TJSONProtocol.cpp in Sources */,
-				0F8EA46121F0CF5600E0F4E7 /* PeekProcessor.cpp in Sources */,
-				0F8EA48521F0CF5600E0F4E7 /* BoostThreadFactory.cpp in Sources */,
 				0F36751421F6DECC007A18D5 /* PoseViewController.swift in Sources */,
-				0F8EA45021F0CF5600E0F4E7 /* TBufferTransports.cpp in Sources */,
-				0F8EA47A21F0CF5600E0F4E7 /* TimerManager.cpp in Sources */,
-				0F8EA47C21F0CF5600E0F4E7 /* Util.cpp in Sources */,
 				0F99B12C21F62BD000F7EB15 /* Utilities.swift in Sources */,
-				0F8EA45E21F0CF5600E0F4E7 /* TPipe.cpp in Sources */,
-				0F8EA45B21F0CF5600E0F4E7 /* TSocketPool.cpp in Sources */,
 				0F8EA49621F1BEBF00E0F4E7 /* SessionListTableViewCell.swift in Sources */,
-				0F8EA3A421F0BD4400E0F4E7 /* Config_types.cpp in Sources */,
-				0F8EA47921F0CF5600E0F4E7 /* TOutput.cpp in Sources */,
-				0F8EA48221F0CF5600E0F4E7 /* ThreadManager.cpp in Sources */,
-				0F8EA45D21F0CF5600E0F4E7 /* TTransportException.cpp in Sources */,
-				0F8EA47E21F0CF5600E0F4E7 /* Monitor.cpp in Sources */,
+				0FB889FC2BD0FFD800187B97 /* Config.swift in Sources */,
 				DA887E031E9A8D1A001F937F /* AppDelegate.swift in Sources */,
-				0F8EA49421F1092F00E0F4E7 /* StdMutex.cpp in Sources */,
 				0F01D62121EE17EA008BCD76 /* RatingControl.swift in Sources */,
-				0F8EA45621F0CF5600E0F4E7 /* TSocket.cpp in Sources */,
-				0F8EA45F21F0CF5600E0F4E7 /* TSimpleFileTransport.cpp in Sources */,
-				0F8EA48121F0CF5600E0F4E7 /* PosixThreadFactory.cpp in Sources */,
-				0F8EA45121F0CF5600E0F4E7 /* TPipeServer.cpp in Sources */,
-				0F8EA3A321F0BD4400E0F4E7 /* Config_constants.cpp in Sources */,
-				0F8EA47421F0CF5600E0F4E7 /* THeaderProtocol.cpp in Sources */,
 				0F01D61F21EDFE62008BCD76 /* SessionDetailHeaderTableViewCell.swift in Sources */,
-				0F8EA45C21F0CF5600E0F4E7 /* TFileTransport.cpp in Sources */,
 				0F99B12E21F6365300F7EB15 /* UserData.swift in Sources */,
-				0F2D53E721F8C76500C38838 /* TZlibTransport.cpp in Sources */,
 				0F01D5B821ED9E81008BCD76 /* PoseEntryTableViewCell.swift in Sources */,
 				0FA2171C21F849AF0005D66C /* Exceptions.swift in Sources */,
+				0FB889FD2BD0FFD800187B97 /* Config+Exts.swift in Sources */,
 				0F8EA49A21F1E6C500E0F4E7 /* SessionListTableViewController.swift in Sources */,
-				0F8EA48321F0CF5600E0F4E7 /* StdThreadFactory.cpp in Sources */,
-				0F8EA47821F0CF5600E0F4E7 /* TBinaryProtocol.tcc in Sources */,
 				0F8EA49C21F1F21100E0F4E7 /* Utilties.m in Sources */,
 				0FA2172021F876300005D66C /* SettingsMenu.swift in Sources */,
-				0F8EA47621F0CF5600E0F4E7 /* TProtocol.cpp in Sources */,
+				0FB889F02BD0DC9800187B97 /* ConfigManager.swift in Sources */,
 				0F8EA4AD21F30D1500E0F4E7 /* SessionDetailTableViewController.swift in Sources */,
 				DA887E051E9A8D1A001F937F /* FirstViewController.swift in Sources */,
-				0F8EA48621F0CF5600E0F4E7 /* VirtualProfiling.cpp in Sources */,
-				0F8EA45721F0CF5600E0F4E7 /* TTransportUtils.cpp in Sources */,
-				0F8EA47121F0CF5600E0F4E7 /* TDebugProtocol.cpp in Sources */,
-				0F8EA47321F0CF5600E0F4E7 /* TBase64Utils.cpp in Sources */,
-				0F2D53E821F8C76A00C38838 /* THeaderTransport.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +464,7 @@
 		};
 		DA887E141E9A8D1A001F937F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA73DFCD676FD976AFBDF769 /* Pods-Yoga.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -742,18 +475,20 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/thriftbase/lib/d/src/thrift/transport",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.paulwilkinson.pyc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Yoga/Yoga-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				SYSTEM_HEADER_SEARCH_PATHS = "/Users/paul/projects/PowerYoga/thriftbase/lib/cpp/src/ /Users/paul/projects/boost";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "/Users/paulwilkinson/projects/boost /Users/paulwilkinson/projects/thrift/lib/cpp/src";
 			};
 			name = Debug;
 		};
 		DA887E151E9A8D1A001F937F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44548DE45F219BCA60CC109A /* Pods-Yoga.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -764,12 +499,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/thriftbase/lib/d/src/thrift/transport",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.paulwilkinson.pyc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Yoga/Yoga-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				SYSTEM_HEADER_SEARCH_PATHS = "/Users/paul/projects/PowerYoga/thriftbase/lib/cpp/src/ /Users/paul/projects/boost";
+				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = "/Users/paulwilkinson/projects/boost /Users/paulwilkinson/projects/thrift/lib/cpp/src";
 			};
 			name = Release;
 		};

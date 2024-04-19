@@ -15,13 +15,13 @@ class SessionDetailTableViewController: UITableViewController {
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)   {
 		print("init nibName style")
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-		ConfigInit()
+//		ConfigInit()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		print("init coder style")
 		super.init(coder: aDecoder)
-		ConfigInit()
+//		ConfigInit()
 	}
 	
 	@IBAction func onBackButton(_ sender: Any) {
@@ -64,8 +64,8 @@ class SessionDetailTableViewController: UITableViewController {
 	}
 	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let n = GetSessionNumPoses(sessionNum)
-		return Int(n + 1)
+        var numPoses : Int = ConfigManager.getInstance().data.poses!.count
+		return Int(numPoses + 1)
     }
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,24 +75,28 @@ class SessionDetailTableViewController: UITableViewController {
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: "SessionDetailHeaderTableViewCell", for: indexPath) as? SessionDetailHeaderTableViewCell else {
 				fatalError("The dequed cell is not an instance of SessionDetailHeaderTableViewCell")
 			}
-			
-			cell.sessionBackground.image = UIImage(named: String(cString: GetSessionCardImage(sessionNum)))
-			cell.sessionName.text = String(cString: GetSessionLocalizedName(sessionNum))
-			cell.subtitle.text = String(cString: GetSessionSubtitle(sessionNum))
+		
+            let cardImage = ConfigManager.getInstance().data.sessions![Int(sessionNum)].cardImage
+			cell.sessionBackground.image = UIImage(named: cardImage)
+            let localizedName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].localizedName
+            cell.sessionName.text = localizedName
+            let subtitle = ConfigManager.getInstance().data.sessions![Int(sessionNum)].subtitle
+            cell.subtitle.text = subtitle
 			cell.sessionDetail.text = "Get started with Power Yoga! Always consult a doctor before starting a new exercise routine"
 			cell.sessionDetail.sizeToFit()
 			let classLength = 50 * 60
 			let (h,m,s) = secondsToHoursMinutesSeconds(seconds: classLength)
 			cell.duration.text = String.localizedStringWithFormat("%d:%02d", h*60 + m, s)
-			cell.numPoses.text = String(format: "%d poses", GetSessionNumPoses(sessionNum))
-			
-			let energy = GetSessionEnergyRating(sessionNum)
+            let numPoses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses!.count
+			cell.numPoses.text = String(format: "%d poses", numPoses)
+
+            let energyRating = ConfigManager.getInstance().data.sessions![Int(sessionNum)].energyRating
 			//cell.bolt2.isHidden = energy < 2;
 			//cell.bolt3.isHidden = energy < 3;
-			if (energy < 2) {
+			if (energyRating < 2) {
 				cell.bolt2.image = UIImage(named: "icon_lightning_bolt_empty")
 			}
-			if (energy < 3) {
+			if (energyRating < 3) {
 				cell.bolt3.image = UIImage(named: "icon_lightning_bolt_empty")
 			}
 			return cell
@@ -103,16 +107,21 @@ class SessionDetailTableViewController: UITableViewController {
 		}
 
 		let poseNum : Int32 = Int32(indexPath.row - 1)
-		cell.sanskritName.text = String(cString: GetSessionPoseSanskritName(sessionNum, poseNum))
-		cell.englishName.text = String(cString: GetSessionPoseEnglishName(sessionNum, poseNum))
+        let sanskritName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].sanskritName
+        let englishName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].englishName
+        let poseFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].poseFilename
+        let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].seconds
+        let flipped = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].flipped!
+		cell.sanskritName.text = sanskritName
+		cell.englishName.text = englishName
 		//cell.duration.text = String.localizedStringWithFormat("%d", pose.seconds)
-		let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(GetSessionPoseSeconds(sessionNum, poseNum)))
+		let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(seconds))
 		cell.duration.text = String.localizedStringWithFormat("%d:%02d", h*60 + m, s)
-		let flip : Bool = GetSessionPoseFlipped(sessionNum, poseNum)
-		if flip {
-			cell.poseImage.image = UIImage(named: String(format: "mini-%s", arguments: [ GetSessionPosePoseFilename(sessionNum, poseNum) ]))?.withHorizontallyFlippedOrientation()
+        //    return mData->sessions[sessionNum].poses[poseNum].flipped;
+		if flipped {
+			cell.poseImage.image = UIImage(named: String(format: "mini-%s", arguments: [ poseFilename ]))?.withHorizontallyFlippedOrientation()
 		} else {
-			cell.poseImage.image = UIImage(named: String(format: "mini-%s", arguments: [ GetSessionPosePoseFilename(sessionNum, poseNum) ]))
+			cell.poseImage.image = UIImage(named: String(format: "mini-%s", arguments: [ poseFilename ]))
 		}
 
         return cell

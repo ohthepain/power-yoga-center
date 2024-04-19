@@ -75,20 +75,16 @@ class UserPreferences
 		let defaults = UserDefaults.standard
 		defaults.set(nString, forKey: "selectedSessionNum")
 	}
-	
-	static func SetSessionPercentComplete(sessionNum : Int32, completeness : Double) throws {
-		guard let sessionId = GetSessionId(sessionNum) else {
-			throw MyError.runtimeError("undefined sessionId")
-		}
+
+	static func SetSessionPercentComplete(sessionNum : Int, completeness : Double) throws {
+        let sessionId : String = ConfigManager.getInstance().data.sessions![sessionNum].sessionId
 		let key = String(format: "completeness_%s", sessionId)
 		let val = String(completeness)
 		UserDefaults.standard.set(val, forKey: key)
 	}
 	
-	static func GetSessionPercentComplete(sessionNum : Int32) throws -> Double {
-		guard let sessionId = GetSessionId(sessionNum) else {
-			throw MyError.runtimeError("undefined sessionId")
-		}
+	static func GetSessionPercentComplete(sessionNum : Int) throws -> Double {
+        let sessionId : String = ConfigManager.getInstance().data.sessions![sessionNum].sessionId
 		let key = String(format: "completeness_%s", sessionId)
 		if let sval = UserDefaults.standard.string(forKey: key) {
 			if let dval = Double(sval) {

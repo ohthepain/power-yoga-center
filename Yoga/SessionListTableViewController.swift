@@ -9,9 +9,12 @@
 import UIKit
 
 class SessionListTableViewController: UITableViewController {
+    
+    private var data: Data?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        data = ConfigManager.getInstance().data
 		
 //		tableView.register(SessionListTableViewCell.self)
 //		tableView.register(SessionListTableViewCell.self, forCellWithReuseIdentifier: "SessionListTableViewCell")
@@ -31,8 +34,8 @@ class SessionListTableViewController: UITableViewController {
     }
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let number1: Int32 = GetNumSessions()
-		return Int(number1)
+        let n: Int = ConfigManager.getInstance().data.sessions!.count
+		return n
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,15 +44,23 @@ class SessionListTableViewController: UITableViewController {
 			fatalError("The dequed cell is not an instance of SessionListTableViewCell")
 		}
 		
-		let n = Int32(indexPath.row)
+		let n = Int(indexPath.row)
+        
+        let data = self.data!
+        let backgroundImage = data.sessions![n].backgroundImage
+        let localizedName = data.sessions![n].localizedName
+        let subtitle = data.sessions![n].subtitle
+        let comingSoon = data.sessions![n].comingSoon
+        let energyRating = data.sessions![n].energyRating
+        let numPoses = data.sessions![n].poses!.count
 		
 		cell.backButton.isHidden = n != UserPreferences.GetSelectedSessionNum()
-		cell.sessionNum = n
-		cell.backgroundImage.image = UIImage(named: String(cString: GetSessionBackgroundImage(n)))
-		cell.sessionNameLabel.text = String(cString: GetSessionLocalizedName(n))
-		cell.subtitle.text = String(cString: GetSessionSubtitle(n))
+		cell.sessionNum = Int32(n)
+		cell.backgroundImage.image = UIImage(named: backgroundImage)
+		cell.sessionNameLabel.text = localizedName
+		cell.subtitle.text = subtitle
 		cell.lockImage.isHidden = true
-		cell.comingSoon.isHidden = !GetSessionComingSoon(n)
+		cell.comingSoon.isHidden = !comingSoon!
 		cell.durationLabel.text = "30 min"
 		var percentComplete = 0.0
 		do {
@@ -66,22 +77,22 @@ class SessionListTableViewController: UITableViewController {
 		}
 		cell.timesCompletedLabel.text = completenessString
 		cell.timesCompletedLabel.isHidden = percentComplete == 0.0;
-		let energy = GetSessionEnergyRating(n)
 		//cell.bolt2.isHidden = energy < 2;
 		//cell.bolt3.isHidden = energy < 3;
-		if (energy < 2) {
+		if (energyRating < 2) {
 			cell.bolt2.image = UIImage(named: "icon_lightning_bolt_empty")
 		}
-		if (energy < 3) {
+		if (energyRating < 3) {
 			cell.bolt3.image = UIImage(named: "icon_lightning_bolt_empty")
 		}
 
-		cell.numPoses.text = String(format: "%d poses", GetSessionNumPoses(n))
+		cell.numPoses.text = String(format: "%d poses", numPoses)
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if !GetSessionComingSoon(Int32(indexPath.row)) {
+        let comingSoon = data!.sessions![indexPath.row].comingSoon!
+		if !comingSoon {
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let sessionDetailViewController = storyboard.instantiateViewController(withIdentifier: "Session Detail") as! SessionDetailTableViewController
 			sessionDetailViewController.sessionNum = Int32(indexPath.row)

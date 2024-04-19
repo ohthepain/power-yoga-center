@@ -33,21 +33,32 @@ class 	FirstViewController: UIViewController {
 		//self.view.translatesAutoresizingMaskIntoConstraints = false
 	}
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+//        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+//            if ConfigManager.getInstance().ready {
+//                timer.invalidate()
+//                self.updateControls()
+//            }
+//        }
+    }
+    
+    private func updateControls() {
 		var duration : Int32 = 0
-		for n in 0..<GetSessionNumPoses(sessionNum)
+        let numPoses : Int = ConfigManager.getInstance().data.poses!.count
+		for n in 0..<numPoses
 		{
-			duration += GetSessionPoseSeconds(sessionNum, n)
+            let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(n)].seconds
+			duration += seconds
 		}
 		
-		titleLabel.text = String(cString: GetSessionLocalizedName(sessionNum))
-		subtitleLabel.text = String(cString: GetSessionSubtitle(sessionNum))
+        titleLabel.text = ConfigManager.getInstance().data.sessions![Int(sessionNum)].localizedName
+        subtitleLabel.text = ConfigManager.getInstance().data.sessions![Int(sessionNum)].subtitle
 		let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(duration))
 		sessionDurationLabel.text = String.localizedStringWithFormat("%d:%02d", h*60 + m, s)
 		
-		let energy = GetSessionEnergyRating(sessionNum)
+        let energy = ConfigManager.getInstance().data.sessions![Int(sessionNum)].energyRating
 		//bolt2.isHidden = energy < 2;
 		//bolt3.isHidden = energy < 3;
 		if (energy < 2) {

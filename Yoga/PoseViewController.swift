@@ -72,7 +72,8 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 	@objc private func update() {
 		if (running)
 		{
-			let poseEndTime = GetPoseStartTime(poseNum: currentPoseNum) + Double(GetSessionPoseSeconds(sessionNum, currentPoseNum))
+            let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(currentPoseNum)].seconds
+			let poseEndTime = GetPoseStartTime(poseNum: currentPoseNum) + Double(seconds)
 			let now = Date()
 			let timeInterval: Double = now.timeIntervalSince(lastStartTime)
 			let totalElapsed = elapsedAtLastPause + timeInterval
@@ -104,9 +105,9 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 		{
 			detailedAudioTask?.cancel()
 			detailedAudioTask = DispatchWorkItem {
-				let soundfile = String(cString: GetSessionPoseDetailAudioFilename(UserPreferences.GetSelectedSessionNum(), self.currentPoseNum))
-				if self.running && soundfile != "" {
-					self.PlaySound(soundfile: soundfile)
+                let detailAudioFilename = ConfigManager.getInstance().data.sessions![Int(UserPreferences.GetSelectedSessionNum())].poses![Int(self.currentPoseNum)].detailAudioFilename
+				if self.running && detailAudioFilename != "" {
+					self.PlaySound(soundfile: detailAudioFilename)
 					self.didPlayDetail = true
 				}
 			}
@@ -136,7 +137,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 			print("PlaySound: url ", url)
 			do {
 				let audioSession = AVAudioSession.sharedInstance()
-				try!audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.duckOthers)
+                try!audioSession.setCategory(AVAudioSession.Category.playback, options: AVAudioSession.CategoryOptions.duckOthers)
 
 				audioPlayer = try AVAudioPlayer(contentsOf: url)
 				guard let audioPlayer = audioPlayer else
@@ -163,7 +164,8 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 		elapsedAtLastPause = GetPoseStartTime(poseNum: poseNum)
 		lastStartTime = Date()
 		
-		if poseNum >= GetSessionNumPoses(sessionNum)
+        let numPoses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses!.count
+		if poseNum >= numPoses
 		{
 			currentPoseNum = 0
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -172,25 +174,33 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 			StopSound()
 			return;
 		}
+        
+        let sanskritName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].sanskritName
+        let englishName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].englishName
+        let poseFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].poseFilename
+        let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].seconds
+        let flipped = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].flipped!
+        let backgroundFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].backgroundFilename
+        let matFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].matFilename
+        let swooshFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].swooshFilename
+        let shadowFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].shadowFilename
+        
+		poseEnglishNameLabel.text = sanskritName
+		poseSanskritNameLabel.text = englishName
+		backgroundImage.image = UIImage(named: backgroundFilename)
+		matImage.image = UIImage(named: matFilename)
+		swooshImage.image = UIImage(named: swooshFilename)
+		shadowImage.image = UIImage(named: shadowFilename)
 		
-		poseEnglishNameLabel.text = String(cString: GetSessionPoseEnglishName(sessionNum, poseNum))
-		poseSanskritNameLabel.text = String(cString: GetSessionPoseSanskritName(sessionNum, poseNum))
-		backgroundImage.image = UIImage(named: String(cString: GetSessionPoseBackgroundFilename(sessionNum, poseNum)))
-		matImage.image = UIImage(named: String(cString: GetSessionPoseMatFilename(sessionNum, poseNum)))
-		swooshImage.image = UIImage(named: String(cString: GetSessionPoseSwooshFilename(sessionNum, poseNum)))
-		shadowImage.image = UIImage(named: String(cString: GetSessionPoseShadowFilename(sessionNum, poseNum)))
-		
-		let flip : Bool = GetSessionPoseFlipped(sessionNum, poseNum)
-		if flip {
-			poseImage.image = UIImage(named: String(cString: GetSessionPosePoseFilename(sessionNum, poseNum)))?.withHorizontallyFlippedOrientation()
+		if flipped {
+			poseImage.image = UIImage(named: String(cString: poseFilename))!.withHorizontallyFlippedOrientation()
 		} else {
-			poseImage.image = UIImage(named: String(cString: GetSessionPosePoseFilename(sessionNum, poseNum)))
+			poseImage.image = UIImage(named: String(cString: poseFilename))
 		}
 		
 		let remaining = sessionLength - GetPoseStartTime(poseNum: poseNum)
 		let minutes = (Int)(remaining / 60.0)
 		//print("totalElapsed minutes", minutes)
-		let seconds = Int(remaining.truncatingRemainder(dividingBy: 60))
 		//print("totalElapsed seconds", seconds)
 		let displayString = String.localizedStringWithFormat("%1.0d:%02d", minutes, seconds)
 		timerLabel.text = displayString
@@ -203,7 +213,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 		didPlayDetail = false
 		if running {
 			let sessionNum = UserPreferences.GetSelectedSessionNum()
-			let shortAudioFilename = String(cString: GetSessionPoseShortAudioFilename(sessionNum, poseNum))
+			let shortAudioFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].shortAudioFilename
 			if shortAudioFilename != ""
 			{
 				detailedAudioTask?.cancel()

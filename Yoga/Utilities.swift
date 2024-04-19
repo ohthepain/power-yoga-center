@@ -17,7 +17,8 @@ func GetPoseStartTime(poseNum : Int32) -> Double
 	let sessionNum = UserPreferences.GetSelectedSessionNum()
 	var startTime : Double = 0.0
 	for n in 0..<poseNum {
-		startTime += Double(GetSessionPoseSeconds(sessionNum, n))
+        let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(n)].seconds
+		startTime += Double(seconds)
 	}
 	return startTime
 }
@@ -25,14 +26,15 @@ func GetPoseStartTime(poseNum : Int32) -> Double
 func GetPoseEndTime(poseNum : Int32) -> Double
 {
 	let sessionNum = UserPreferences.GetSelectedSessionNum()
-	return GetPoseStartTime(poseNum: poseNum) + Double(GetSessionPoseSeconds(sessionNum, poseNum))
+    let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].seconds
+	return GetPoseStartTime(poseNum: poseNum) + Double(seconds)
 }
 
 func GetSessionLength(sessionNum : Int32) -> Double
 {
-	let numPoses = GetSessionNumPoses(sessionNum)
+    let numPoses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses!.count
 	if numPoses == 0 {
 		return 0.0
 	}
-	return GetPoseEndTime(poseNum: numPoses-1)
+	return GetPoseEndTime(poseNum: Int32(numPoses-1))
 }
