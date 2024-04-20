@@ -7,7 +7,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Apply mutators to config file')
 parser.add_argument('mutators_folder', help='folder containing mutator scripts', choices=('Premutators', 'Mutators'))
-parser.add_argument('namespace', help='namespace from thrift file')
+parser.add_argument('--namespace', help='namespace from thrift file')
 parser.add_argument('--config_subfolder', default='')
 parser.add_argument('--thrift_protocol', choices=('TCompactProtocol', 'TJSONProtocol', 'TBinaryProtocol'), default='TJSONProtocol')
 parser.add_argument('--verbose')
@@ -39,12 +39,7 @@ MutatorModule = importlib.import_module(args.mutators_folder)
 
 import types
 
-# config_subfolder = args.config_subfolder
-# if config_subfolder != '':
-# 	if not config_subfolder.endswith('/'):
-# 		config_subfolder += '/'
-
-configPath = '../config_%s.bin' % (args.config_subfolder)
+configPath = '../../config.bin'
 with open(configPath, 'rb') as f:
 	buf = f.read()
 	f.close()
@@ -52,7 +47,7 @@ with open(configPath, 'rb') as f:
 transport = TTransport.TMemoryBuffer(buf)
 ThriftProtocol = getattr(importlib.import_module("thrift.protocol.%s" % (args.thrift_protocol)), args.thrift_protocol)
 protocol = ThriftProtocol(transport)
-Data = ConfigModule.Data()
+Data = ConfigModule.ConfigData()
 Data.read(protocol)
 
 mutate(Data)

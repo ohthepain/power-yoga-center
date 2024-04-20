@@ -1,17 +1,20 @@
 def CreateSessionsTable(data):
 	print("Hi from CreateSessionsTable mutator")
 
+	if data.poses == None:
+		print("Data.poses is None - already mutated?")
+		return
+
 	sessions = {}
-	for session in Data.sessions:
+	for session in data.sessions:
 		sessions[session.sessionId] = session
 
-	for poseEntry in Data.poses:
-		print(poseEntry.sessionId)
+	for poseEntry in data.poses:
 		session = sessions[poseEntry.sessionId]
-		print("-->" + session.sessionId)
 		if session.poses == None:
-			print("create session.poses")
 			session.poses = []
 		session.poses.append(poseEntry)
 
-	Data.poses = None
+	data.poses = None
+
+__mutators = [CreateSessionsTable]
