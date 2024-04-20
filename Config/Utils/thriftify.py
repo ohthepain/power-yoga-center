@@ -7,13 +7,13 @@ from openpyxl import Workbook
 from openpyxl import load_workbook
 import argparse
 import datetime
-# import emoji
+import openpyxl
 
 parser = argparse.ArgumentParser(description='Excel converter')
 parser.add_argument('--namespace', help='namespace from thrift file')
 parser.add_argument('--thrift_protocol', choices=('TCompactProtocol', 'TJSONProtocol', 'TBinaryProtocol'), default='TJSONProtocol')
 parser.add_argument('--gen_py', default='')
-parser.add_argument('--output', default='../config.bin')
+parser.add_argument('--output', default='config.bin')
 parser.add_argument('--class_name', default='Data')
 parser.add_argument('--verbose', action='store_true')
 parser.add_argument('--enums', action='store_true')
@@ -108,11 +108,6 @@ class TypeEntry:
 			self.name = spec[2]
 			if self.containerType == TType.MAP:
 				self.mapIndexType = spec[3][0]
-
-#     (181, TType.MAP, 'userFrames', (TType.STRING, 'UTF8', TType.STRUCT, [UserFrame, None], False), None, ),  # 181
-#     (182, TType.MAP, 'stringTable', (TType.STRING, 'UTF8', TType.STRING, 'UTF8', False), None, ),  # 182
-#     (183, TType.MAP, 'boolTable', (TType.STRING, 'UTF8', TType.BOOL, None, False), None, ),  # 183
-
 				if spec[3][3] == 'UTF8':
 					# map of strings
 					self.valueType = spec[3][3]
@@ -391,9 +386,6 @@ def ensureDir(file_path):
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-import openpyxl
-# print(emoji.emojize('openpyxl version: %s :rocket: :snake:' % (openpyxl.__version__)))
-
 members = [attr for attr in dir(Data) if not callable(getattr(Data, attr)) and not attr.startswith("__")]
 
 if args.enums:
@@ -420,12 +412,6 @@ ThriftProtocol = getattr(importlib.import_module("thrift.protocol.%s" % (args.th
 protocol = ThriftProtocol(transport)
 Data.schemaVersionId = 1
 Data.write(protocol)
-
-# config_subfolder = args.config_subfolder
-# if config_subfolder != '':
-# 	if not config_subfolder.endswith('/'):
-# 		config_subfolder += '/'
-# 	ensureDir(config_subfolder)
 
 configPath = args.output
 buf = transport.getvalue()
