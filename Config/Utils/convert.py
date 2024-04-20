@@ -10,7 +10,7 @@ import datetime
 # import emoji
 
 parser = argparse.ArgumentParser(description='Excel converter')
-parser.add_argument('namespace', help='namespace from thrift file')
+parser.add_argument('--namespace', help='namespace from thrift file')
 parser.add_argument('--thrift_protocol', choices=('TCompactProtocol', 'TJSONProtocol', 'TBinaryProtocol'), default='TJSONProtocol')
 parser.add_argument('--gen_py', default='')
 parser.add_argument('--output', default='../config.bin')
