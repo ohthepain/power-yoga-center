@@ -37,6 +37,8 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 	var audioPlayer: AVAudioPlayer?
 	var detailedAudioTask : DispatchWorkItem?
 	var pausedOnAppResignsActive : Bool = false
+    
+    let data = ConfigManager.getInstance().data
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -72,7 +74,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 	@objc private func update() {
 		if (running)
 		{
-            let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(currentPoseNum)].seconds
+            let seconds = data.sessions![Int(sessionNum)].poses![Int(currentPoseNum)].seconds
 			let poseEndTime = GetPoseStartTime(poseNum: currentPoseNum) + Double(seconds)
 			let now = Date()
 			let timeInterval: Double = now.timeIntervalSince(lastStartTime)
@@ -105,7 +107,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 		{
 			detailedAudioTask?.cancel()
 			detailedAudioTask = DispatchWorkItem {
-                let detailAudioFilename = ConfigManager.getInstance().data.sessions![Int(UserPreferences.GetSelectedSessionNum())].poses![Int(self.currentPoseNum)].detailAudioFilename
+                let detailAudioFilename = self.data.sessions![Int(UserPreferences.GetSelectedSessionNum())].poses![Int(self.currentPoseNum)].detailAudioFilename
 				if self.running && detailAudioFilename != "" {
 					self.PlaySound(soundfile: detailAudioFilename!)
 					self.didPlayDetail = true
@@ -164,7 +166,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 		elapsedAtLastPause = GetPoseStartTime(poseNum: poseNum)
 		lastStartTime = Date()
 		
-        let numPoses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses!.count
+        let numPoses = data.sessions![Int(sessionNum)].poses!.count
 		if poseNum >= numPoses
 		{
 			currentPoseNum = 0
@@ -175,15 +177,15 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 			return;
 		}
         
-        let sanskritName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].sanskritName
-        let englishName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].englishName
-        let poseFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].poseFilename
-        let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].seconds
-        let flipped = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].flipped!
-        let backgroundFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].backgroundFilename
-        let matFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].matFilename
-        let swooshFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].swooshFilename
-        let shadowFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].shadowFilename
+        let sanskritName = data.sessions![Int(sessionNum)].poses![Int(poseNum)].sanskritName
+        let englishName = data.sessions![Int(sessionNum)].poses![Int(poseNum)].englishName
+        let poseFilename = data.sessions![Int(sessionNum)].poses![Int(poseNum)].poseFilename
+        let seconds = data.sessions![Int(sessionNum)].poses![Int(poseNum)].seconds
+        let flipped = data.sessions![Int(sessionNum)].poses![Int(poseNum)].flipped
+        let backgroundFilename = data.sessions![Int(sessionNum)].poses![Int(poseNum)].backgroundFilename
+        let matFilename = data.sessions![Int(sessionNum)].poses![Int(poseNum)].matFilename
+        let swooshFilename = data.sessions![Int(sessionNum)].poses![Int(poseNum)].swooshFilename
+        let shadowFilename = data.sessions![Int(sessionNum)].poses![Int(poseNum)].shadowFilename
         
 		poseEnglishNameLabel.text = sanskritName
 		poseSanskritNameLabel.text = englishName
@@ -192,10 +194,10 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 		swooshImage.image = UIImage(named: swooshFilename)
 		shadowImage.image = UIImage(named: shadowFilename)
 		
-		if flipped {
-			poseImage.image = UIImage(named: String(cString: poseFilename))!.withHorizontallyFlippedOrientation()
+		if flipped != nil && flipped! {
+			poseImage.image = UIImage(named: poseFilename)!.withHorizontallyFlippedOrientation()
 		} else {
-			poseImage.image = UIImage(named: String(cString: poseFilename))
+			poseImage.image = UIImage(named: poseFilename)
 		}
 		
 		let remaining = sessionLength - GetPoseStartTime(poseNum: poseNum)
@@ -213,7 +215,7 @@ class PoseViewController: UIViewController, AVAudioPlayerDelegate {
 		didPlayDetail = false
 		if running {
 			let sessionNum = UserPreferences.GetSelectedSessionNum()
-			let shortAudioFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].shortAudioFilename
+			let shortAudioFilename = data.sessions![Int(sessionNum)].poses![Int(poseNum)].shortAudioFilename
 			if shortAudioFilename != ""
 			{
 				detailedAudioTask?.cancel()

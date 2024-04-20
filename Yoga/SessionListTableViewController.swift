@@ -52,7 +52,11 @@ class SessionListTableViewController: UITableViewController {
         let subtitle = data.sessions![n].subtitle
         let comingSoon = data.sessions![n].comingSoon
         let energyRating = data.sessions![n].energyRating
-        let numPoses = data.sessions![n].poses!.count
+        let poses = data.sessions![n].poses
+        var numPoses = 0
+        if poses != nil {
+            numPoses = data.sessions![n].poses!.count
+        }
 		
 		cell.backButton.isHidden = n != UserPreferences.GetSelectedSessionNum()
 		cell.sessionNum = Int32(n)
@@ -60,7 +64,7 @@ class SessionListTableViewController: UITableViewController {
 		cell.sessionNameLabel.text = localizedName
 		cell.subtitle.text = subtitle
 		cell.lockImage.isHidden = true
-		cell.comingSoon.isHidden = !comingSoon!
+		cell.comingSoon.isHidden = comingSoon == nil || !comingSoon!
 		cell.durationLabel.text = "30 min"
 		var percentComplete = 0.0
 		do {
@@ -91,8 +95,8 @@ class SessionListTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let comingSoon = data!.sessions![indexPath.row].comingSoon!
-		if !comingSoon {
+        let comingSoon = data!.sessions![indexPath.row].comingSoon
+		if comingSoon == nil || !comingSoon! {
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let sessionDetailViewController = storyboard.instantiateViewController(withIdentifier: "Session Detail") as! SessionDetailTableViewController
 			sessionDetailViewController.sessionNum = Int32(indexPath.row)

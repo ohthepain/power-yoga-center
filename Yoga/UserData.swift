@@ -85,7 +85,7 @@ class UserPreferences
 	
 	static func GetSessionPercentComplete(sessionNum : Int) throws -> Double {
         let sessionId : String = ConfigManager.getInstance().data.sessions![sessionNum].sessionId
-		let key = String(format: "completeness_%s", sessionId)
+        let key = "completeness_\(sessionId)"
 		if let sval = UserDefaults.standard.string(forKey: key) {
 			if let dval = Double(sval) {
 				return dval

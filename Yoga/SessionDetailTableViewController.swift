@@ -64,7 +64,10 @@ class SessionDetailTableViewController: UITableViewController {
 	}
 	
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var numPoses : Int = ConfigManager.getInstance().data.poses!.count
+        var numPoses : Int = 0
+        if ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses != nil {
+            numPoses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses!.count
+        }
 		return Int(numPoses + 1)
     }
 	
@@ -111,7 +114,8 @@ class SessionDetailTableViewController: UITableViewController {
         let englishName = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].englishName
         let poseFilename = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].poseFilename
         let seconds = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].seconds
-        let flipped = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses![Int(poseNum)].flipped!
+        let poses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses
+        let flipped = poses != nil && poses![Int(poseNum)].flipped != nil && poses![Int(poseNum)].flipped!
 		cell.sanskritName.text = sanskritName
 		cell.englishName.text = englishName
 		//cell.duration.text = String.localizedStringWithFormat("%d", pose.seconds)
@@ -119,9 +123,9 @@ class SessionDetailTableViewController: UITableViewController {
 		cell.duration.text = String.localizedStringWithFormat("%d:%02d", h*60 + m, s)
         //    return mData->sessions[sessionNum].poses[poseNum].flipped;
 		if flipped {
-			cell.poseImage.image = UIImage(named: String(format: "mini-%s", arguments: [ poseFilename ]))?.withHorizontallyFlippedOrientation()
+            cell.poseImage.image = UIImage(named: "mini-\(poseFilename)")?.withHorizontallyFlippedOrientation()
 		} else {
-			cell.poseImage.image = UIImage(named: String(format: "mini-%s", arguments: [ poseFilename ]))
+            cell.poseImage.image = UIImage(named: "mini-\(poseFilename)")
 		}
 
         return cell
