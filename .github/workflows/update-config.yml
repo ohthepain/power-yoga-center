@@ -23,10 +23,17 @@ jobs:
     - name: Install thrift
       run: |
         sudo apt-get install automake bison flex g++ git libboost-all-dev libevent-dev libssl-dev libtool make pkg-config
+        echo start part 2
         curl -O https://dlcdn.apache.org/thrift/0.20.0/thrift-0.20.0.tar.gz
+        echo start part 3
+        ls -l thrift-0.20.0.tar.gz
+        echo start part 4
         tar -xvf thrift-0.20.0.tar.gz
+        echo start part 5
         ./bootstrap.sh
+        echo start part 6
         ./configure
+        echo start part 7
         sudo make
     - name: Install dependencies
       run: |
