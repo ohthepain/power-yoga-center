@@ -36,16 +36,37 @@ jobs:
     #     ./configure --without-java --without-kotlin --without-erlang --without-nodejs --without-nodets --without-lua --without-perl --without-dart --without-haskell --without-swift --without-ruby --without-go --enable-tutorial=no --enable-coverage=no --disable-dependency-tracking
     #     echo start part 7
     #     sudo make
-    - name: Generate thrift source
-      working-directory: ./Config/Thrift
-      run: |
-        ../../thrift-0.20.0.exe --gen py Config.thrift
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-    - name: Build config
-      working-directory: ./Config/Excel
-      run: |
-        dir
-        ./convert.sh
-        ./mutate.sh
+
+    # - name: Generate thrift source
+    #   working-directory: ./Config/Thrift
+    #   run: |
+    #     ../../thrift-0.20.0.exe --gen py Config.thrift
+    # - name: Install dependencies
+    #   run: |
+    #     pip install -r requirements.txt
+    # - name: Build config
+    #   working-directory: ./Config/Excel
+    #   run: |
+    #     dir
+    #     ./convert.sh
+    #     ./mutate.sh
+    - name: Upload S3
+      uses: hkusu/s3-upload-action@v2
+      id: upload # specify some ID for use in subsequent steps
+      with:
+        aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+        aws-region: 'eu-central-1'
+        aws-bucket: 'yoga.config'
+        file-path: './requirements.txt'
+        output-file-url: 'true' # specify output
+    - name: Show Config URL
+      run: echo '${{ steps.upload.outputs.file-url }}' # use output
+
+
+# uses: shallwefootball/s3-upload-action@master
+# with:
+#     aws_key_id: ${{ secrets.ACCESS_KEY_ID }}
+#     aws_secret_access_key: ${{ secrets.SECRET_ACCESS_KEY}}
+#     aws_bucket: yoga.config
+#     source_dir: 'dirname'
