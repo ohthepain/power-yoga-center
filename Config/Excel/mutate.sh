@@ -3,16 +3,11 @@
 EXCELDIR=`pwd`
 CONFIGDIR="$EXCELDIR/../.."
 UTILSDIR="$EXCELDIR/../Utils"
-MUTATE_PY="$UTILSDIR/mutate.py"
 
 if [ -e Premutators ] ; then
   echo Pre-mutators ...
-  python3 $MUTATE_PY Premutators --namespace Yoga.Config --thrift_protocol TJSONProtocol
+  mutate --mutators_folder Premutators --namespace Yoga.Config --gen_py ../Thrift/gen-py --thrift_protocol TJSONProtocol --class_name ConfigData --input_path ../../config.bin --output_path ../../config.bin
 fi
 
-
 echo Mutators ...
-#--gen_py ../Thrift/gen_py 
-python3 $MUTATE_PY Mutators --namespace Yoga.Config --thrift_protocol TJSONProtocol
-
-
+mutate --mutators_folder Mutators --namespace Yoga.Config --gen_py ../Thrift/gen-py --thrift_protocol TJSONProtocol --class_name ConfigData --input_path ../../config.bin --output_path ../../config.bin
