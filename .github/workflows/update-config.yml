@@ -39,7 +39,12 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+    - name: Generate thrift source
+      run: |
         cd Config/Thrift
         ../../thrift-0.20.0.exe --gen py Config.thrift
+    - name: Build config
+      run: |
+        pwd
         ./convert.sh
         ./mutate.sh
