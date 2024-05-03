@@ -9,7 +9,7 @@ permissions:
 jobs:
   publish:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest #ubuntu-latest
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
@@ -20,26 +20,26 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
-    - name: Install thrift
-      run: |
-        sudo apt-get install automake bison flex g++ git libboost-all-dev libevent-dev libssl-dev libtool make pkg-config
-        echo start part 2
-        curl -O https://dlcdn.apache.org/thrift/0.20.0/thrift-0.20.0.tar.gz
-        echo start part 3
-        ls -l thrift-0.20.0.tar.gz
-        echo start part 4
-        tar -xvf thrift-0.20.0.tar.gz
-        echo start part 5
-        cd thrift-0.20.0
-        ./bootstrap.sh
-        echo start part 6
-        ./configure --without-java --without-kotlin --without-erlang --without-nodejs --without-nodets --without-lua --without-perl --without-dart --without-haskell --without-swift --without-ruby --without-go --enable-tutorial=no --enable-coverage=no --disable-dependency-tracking
-        echo start part 7
-        sudo make
+    # - name: Install thrift
+    #   run: |
+    #     sudo apt-get install automake bison flex g++ git libboost-all-dev libevent-dev libssl-dev libtool make pkg-config
+    #     echo start part 2
+    #     curl -O https://dlcdn.apache.org/thrift/0.20.0/thrift-0.20.0.tar.gz
+    #     echo start part 3
+    #     ls -l thrift-0.20.0.tar.gz
+    #     echo start part 4
+    #     tar -xvf thrift-0.20.0.tar.gz
+    #     echo start part 5
+    #     cd thrift-0.20.0
+    #     ./bootstrap.sh
+    #     echo start part 6
+    #     ./configure --without-java --without-kotlin --without-erlang --without-nodejs --without-nodets --without-lua --without-perl --without-dart --without-haskell --without-swift --without-ruby --without-go --enable-tutorial=no --enable-coverage=no --disable-dependency-tracking
+    #     echo start part 7
+    #     sudo make
     - name: Install dependencies
       run: |
         cd Config/Thrift
-        thrift --gen py Config.thrift
+        ../../thrift-0-20.exe --gen py Config.thrift
         pip install -r requirements.txt
         cd Config/Excel
         ./convert.sh
