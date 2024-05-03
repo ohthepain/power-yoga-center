@@ -90,7 +90,11 @@ class SessionDetailTableViewController: UITableViewController {
 			let classLength = 50 * 60
 			let (h,m,s) = secondsToHoursMinutesSeconds(seconds: classLength)
 			cell.duration.text = String.localizedStringWithFormat("%d:%02d", h*60 + m, s)
-            let numPoses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses!.count
+            let poses = ConfigManager.getInstance().data.sessions![Int(sessionNum)].poses
+            var numPoses = 0
+            if poses != nil {
+                numPoses = poses!.count
+            }
 			cell.numPoses.text = String(format: "%d poses", numPoses)
 
             let energyRating = ConfigManager.getInstance().data.sessions![Int(sessionNum)].energyRating
