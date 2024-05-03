@@ -44,7 +44,7 @@ jobs:
       run: |
         pip install -r requirements.txt
     - name: Build config
-      working-directory: ./Config/Thrift
+      working-directory: ./Config/Excel
       run: |
         dir
         ./convert.sh
