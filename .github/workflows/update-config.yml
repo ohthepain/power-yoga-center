@@ -59,7 +59,7 @@ jobs:
         aws-region: 'eu-central-1'
         aws-bucket: 'yoga.config'
         file-path: './requirements.txt'
-        destination-dir: '.'
+        destination-dir: '/'
         output-file-url: 'true' # specify output
     - name: Show Config URL
       run: echo '${{ steps.upload.outputs.file-url }}' # use output
