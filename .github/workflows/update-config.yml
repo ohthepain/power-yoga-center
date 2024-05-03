@@ -40,11 +40,11 @@ jobs:
       run: |
         pip install -r requirements.txt
     - name: Generate thrift source
+      working-directory: ./Config/Thrift
       run: |
-        cd Config/Thrift
         ../../thrift-0.20.0.exe --gen py Config.thrift
     - name: Build config
       run: |
-        pwd
+        dir
         ./convert.sh
         ./mutate.sh
