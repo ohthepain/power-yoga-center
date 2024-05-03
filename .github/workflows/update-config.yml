@@ -39,7 +39,7 @@ jobs:
     - name: Install dependencies
       run: |
         cd Config/Thrift
-        ../../thrift-0-20.exe --gen py Config.thrift
+        ../../thrift-0.20.0.exe --gen py Config.thrift
         pip install -r requirements.txt
         cd Config/Excel
         ./convert.sh
