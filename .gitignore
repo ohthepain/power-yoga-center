@@ -1,3 +1,4 @@
 Config/Thrift/gen-*
-*/__pycache__/*
-*/*.pyc
+Config/Excel/venv
+**/__pycache__/*
+**/*.pyc
