@@ -21,7 +21,7 @@ jobs:
       with:
         python-version: '3.x'
     - name: Install thrift
-      run: sudo apt-get install thrift
+      run: sudo apt-get install automake bison flex g++ git libboost-all-dev libevent-dev libssl-dev libtool make pkg-config
     - name: Install dependencies
       run: |
         cd Config/Thrift
