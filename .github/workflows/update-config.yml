@@ -33,7 +33,7 @@ jobs:
         cd thrift-0.20.0
         ./bootstrap.sh
         echo start part 6
-        ./configure --without-java --without-kotlin --without-erlang --without-nodejs --without-nodets --without-lua --without-perl --without-dart --without-haskell --without-swift --without-ruby --without-go --enable-tutorial=no --enable-coverage=no
+        ./configure --without-java --without-kotlin --without-erlang --without-nodejs --without-nodets --without-lua --without-perl --without-dart --without-haskell --without-swift --without-ruby --without-go --enable-tutorial=no --enable-coverage=no --disable-dependency-tracking
         echo start part 7
         sudo make
     - name: Install dependencies
