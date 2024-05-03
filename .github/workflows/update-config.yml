@@ -22,6 +22,8 @@ jobs:
         python-version: '3.x'
     - name: Install dependencies
       run: |
+        cd Config/Thrift
+        thrift --gen py Config.thrift
         pip install -r requirements.txt
         cd Config/Excel
         ./convert.sh
