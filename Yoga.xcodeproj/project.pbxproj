@@ -28,7 +28,6 @@
 		0FA2171C21F849AF0005D66C /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2171B21F849AF0005D66C /* Exceptions.swift */; };
 		0FA2172021F876300005D66C /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2171F21F876300005D66C /* SettingsMenu.swift */; };
 		0FB889F02BD0DC9800187B97 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB889EF2BD0DC9800187B97 /* ConfigManager.swift */; };
-		0FFB11112BD2934C00F5C120 /* Config in Resources */ = {isa = PBXBuildFile; fileRef = 0FFB11102BD2934C00F5C120 /* Config */; };
 		0FFB11142BD2A42800F5C120 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB11122BD2A42800F5C120 /* Config.swift */; };
 		0FFB11152BD2A42800F5C120 /* Config+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFB11132BD2A42800F5C120 /* Config+Exts.swift */; };
 		8B2C2DC533BFBEFD68882F92 /* Pods_Yoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E645476A5BB99107AC884329 /* Pods_Yoga.framework */; };
@@ -266,7 +265,6 @@
 				DA887E0F1E9A8D1A001F937F /* LaunchScreen.storyboard in Resources */,
 				0F8EA4A721F235DE00E0F4E7 /* calibril.ttf in Resources */,
 				DA887E0C1E9A8D1A001F937F /* Assets.xcassets in Resources */,
-				0FFB11112BD2934C00F5C120 /* Config in Resources */,
 				DAEE0CAA1ED1B74900C34A59 /* Sound in Resources */,
 				0F8EA4A921F235DE00E0F4E7 /* calibri.ttf in Resources */,
 				DA887E0A1E9A8D1A001F937F /* Main.storyboard in Resources */,
