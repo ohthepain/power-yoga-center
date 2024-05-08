@@ -54,8 +54,8 @@ jobs:
       uses: hkusu/s3-upload-action@v2
       id: upload # specify some ID for use in subsequent steps
       with:
-        aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'eu-central-1'
         aws-bucket: 'yoga.config'
         file-path: './config.bin'
@@ -63,11 +63,3 @@ jobs:
         output-file-url: 'true' # specify output
     - name: Show Config URL
       run: echo '${{ steps.upload.outputs.file-url }}' # use output
-
-
-# uses: shallwefootball/s3-upload-action@master
-# with:
-#     aws_key_id: ${{ secrets.ACCESS_KEY_ID }}
-#     aws_secret_access_key: ${{ secrets.SECRET_ACCESS_KEY}}
-#     aws_bucket: yoga.config
-#     source_dir: 'dirname'
