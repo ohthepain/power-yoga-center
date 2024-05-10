@@ -9,6 +9,7 @@ permissions:
 jobs:
   publish:
 
+    # thrift is too difficult to build on the other platforms
     runs-on: windows-latest #ubuntu-latest
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing
@@ -37,6 +38,22 @@ jobs:
     #     echo start part 7
     #     sudo make
 
+    - name: Increment config number
+      uses: ohthepain/global-build-numbers@v0.15
+      id: confignum
+      with:
+        DYNAMO_TABLE_NAME: 'build-numbers'
+        DYNAMO_PARTITION_KEY: 'product-id'
+        PRODUCT_ID: 'yoga-config'
+        OPERATION: 'increment'
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: 'eu-central-1'
+
+    - name: Echo config number
+      run: echo ${{ steps.confignum.outputs.result }}
+
     - name: Generate thrift source
       working-directory: ./Config/Thrift
       run: |
@@ -50,6 +67,16 @@ jobs:
         dir
         ./convert.sh
         ./mutate.sh
+
+    - name: "install aws cli"
+      uses: ohthepain/action-install-aws-cli@v0.14
+      # All commands after this point have access to the AWS CLI
+    - run: aws s3 ls
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: 'eu-central-1'
+
     - name: Upload S3
       uses: hkusu/s3-upload-action@v2
       id: upload # specify some ID for use in subsequent steps
@@ -58,7 +85,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'eu-central-1'
         aws-bucket: 'yoga.config'
-        file-path: './config.bin'
+        file-path: "./config+${{ steps.confignum.outputs.result }}.bin"
         destination-dir: '/'
         output-file-url: 'true' # specify output
     - name: Show Config URL
