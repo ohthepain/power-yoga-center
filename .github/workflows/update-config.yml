@@ -85,7 +85,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'eu-central-1'
         aws-bucket: 'yoga.config'
-        file-path: "./config+${{ steps.confignum.outputs.result }}.bin"
+        file-path: "./config_${{ steps.confignum.outputs.result }}.bin"
         destination-dir: '/'
         output-file-url: 'true' # specify output
     - name: Show Config URL
