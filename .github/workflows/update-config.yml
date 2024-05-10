@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  publish:
+  BuildConfig:
 
     # thrift is too difficult to build on the other platforms
     runs-on: windows-latest #ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
     #     sudo make
 
     - name: Increment config number
-      uses: ohthepain/global-build-numbers@v0.15
+      uses: ohthepain/global-build-numbers@v0.16
       id: confignum
       with:
         DYNAMO_TABLE_NAME: 'build-numbers'
