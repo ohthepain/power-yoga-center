@@ -61,14 +61,15 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+
     - name: Build config
       working-directory: ./Config/Excel
       run: |
         dir
         ./convert.sh
         ./mutate.sh
-        cp ../../config.bin "config_${{ steps.confignum.outputs.result }}.bin"
-        echo cwd
+        cp ../../config.bin "../../config_${{ steps.confignum.outputs.result }}.bin"
+        echo wwd
         pwd
         echo ls
         ls
