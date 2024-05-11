@@ -68,6 +68,12 @@ jobs:
         ./convert.sh
         ./mutate.sh
         cp ../../config.bin "config_${{ steps.confignum.outputs.result }}.bin"
+        echo cwd
+        pwd
+        echo ls
+        ls
+        echo ls ../..
+        ls ../..
 
     - name: "install aws cli"
       uses: ohthepain/action-install-aws-cli@v0.14
