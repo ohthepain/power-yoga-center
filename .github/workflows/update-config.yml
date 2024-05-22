@@ -23,22 +23,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
-    # - name: Install thrift
-    #   run: |
-    #     sudo apt-get install automake bison flex g++ git libboost-all-dev libevent-dev libssl-dev libtool make pkg-config
-    #     echo start part 2
-    #     curl -O https://dlcdn.apache.org/thrift/0.20.0/thrift-0.20.0.tar.gz
-    #     echo start part 3
-    #     ls -l thrift-0.20.0.tar.gz
-    #     echo start part 4
-    #     tar -xvf thrift-0.20.0.tar.gz
-    #     echo start part 5
-    #     cd thrift-0.20.0
-    #     ./bootstrap.sh
-    #     echo start part 6
-    #     ./configure --without-java --without-kotlin --without-erlang --without-nodejs --without-nodets --without-lua --without-perl --without-dart --without-haskell --without-swift --without-ruby --without-go --enable-tutorial=no --enable-coverage=no --disable-dependency-tracking
-    #     echo start part 7
-    #     sudo make
 
     - name: Increment config number
       uses: ohthepain/global-build-numbers@v0.16
@@ -70,12 +54,15 @@ jobs:
           -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' 
           -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
         config_id=$(echo $response | jq -r '.id')
-        echo "Config ID: $config_id"
+        echo "Config ID: ${config_id}"
+
+    # - name: Export config_id
+    #   run: echo "config_id=$config_id" >> $GITHUB_ENV
 
     - name: Update config status to BUILDING
       run: |
         response = curl -X POST https://config.allknownmetalbands.com/api/configs/update-status -H "Content-Type: application/json" \
-          -d '{"id": "$config_id", "status": "BUILDING"}' 
+          -d '{"id": "${config_id}", "status": "BUILDING"}' 
           -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
   
     - name: Build config
@@ -84,7 +71,7 @@ jobs:
         dir
         ./convert.sh
         ./mutate.sh
-        cp ../../config.bin "../../config_$config_id.bin"
+        cp ../../config.bin "../../config_${config_id}.bin"
         echo pwd
         pwd
         echo ls
@@ -95,13 +82,15 @@ jobs:
     - name: Calculate checksum
       working-directory: ./Config/Excel
       run: |
-        checksum = md5sum "../../config_${{ steps.confignum.outputs.result }}.bin" > "../../config_${{ steps.confignum.outputs.result }}.md5"
+        checksum=$(md5sum "../../config_${{ steps.confignum.outputs.result }}.bin"
+        #  > "../../config_${{ steps.confignum.outputs.result }}.md5")
         echo "checksum is $checksum"
 
     - name: "install aws cli"
       uses: ohthepain/action-install-aws-cli@v0.14
-      # All commands after this point have access to the AWS CLI
-    - run: aws s3 ls
+
+    - name: test aws cli
+      run: aws s3 ls
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
