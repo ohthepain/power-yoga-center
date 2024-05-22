@@ -14,6 +14,8 @@ jobs:
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
+    env:
+      CONFIG_API_TOKEN: ${{ secrets.CONFIG_API_KEY }}
 
     steps:
     - uses: actions/checkout@v4
@@ -52,7 +54,7 @@ jobs:
         AWS_DEFAULT_REGION: 'eu-central-1'
 
     - name: Echo config number
-      run: echo ${{ steps.confignum.outputs.result }}
+      run: echo We don't use these config numbers anymore ${{ steps.confignum.outputs.result }}
 
     - name: Generate thrift source
       working-directory: ./Config/Thrift
@@ -62,19 +64,39 @@ jobs:
       run: |
         pip install -r requirements.txt
 
+    - name: Create new config and get config id
+      run: |
+        response = curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" \
+          -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' 
+          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
+        config_id=$(echo $response | jq -r '.id')
+        echo "Config ID: $config_id"
+
+    - name: Update config status to BUILDING
+      run: |
+        response = curl -X POST https://config.allknownmetalbands.com/api/configs/update-status -H "Content-Type: application/json" \
+          -d '{"id": "$config_id", "status": "BUILDING"}' 
+          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
+  
     - name: Build config
       working-directory: ./Config/Excel
       run: |
         dir
         ./convert.sh
         ./mutate.sh
-        cp ../../config.bin "../../config_${{ steps.confignum.outputs.result }}.bin"
-        echo wwd
+        cp ../../config.bin "../../config_$config_id.bin"
+        echo pwd
         pwd
         echo ls
         ls
         echo ls ../..
         ls ../..
+
+    - name: Calculate checksum
+      working-directory: ./Config/Excel
+      run: |
+        checksum = md5sum "../../config_${{ steps.confignum.outputs.result }}.bin" > "../../config_${{ steps.confignum.outputs.result }}.md5"
+        echo "checksum is $checksum"
 
     - name: "install aws cli"
       uses: ohthepain/action-install-aws-cli@v0.14
@@ -98,3 +120,11 @@ jobs:
         output-file-url: 'true' # specify output
     - name: Show Config URL
       run: echo '${{ steps.upload.outputs.file-url }}' # use output
+
+    - name: Complete the config
+      run: |
+        response = curl -X POST https://config.allknownmetalbands.com/api/configs/complete -H "Content-Type: application/json" \
+          -d '{"id": "$config_id", "checksumMd5": "$checksum", "downloadUrl": "${{ steps.upload.outputs.file-url }}"}' 
+          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
+  
+      
