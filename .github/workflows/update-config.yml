@@ -54,7 +54,7 @@ jobs:
         AWS_DEFAULT_REGION: 'eu-central-1'
 
     - name: Echo config number
-      run: echo We don't use these config numbers anymore ${{ steps.confignum.outputs.result }}
+      run: echo We dont use these config numbers anymore ${{ steps.confignum.outputs.result }}
 
     - name: Generate thrift source
       working-directory: ./Config/Thrift
