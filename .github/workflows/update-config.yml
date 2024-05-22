@@ -38,14 +38,10 @@ jobs:
 
     - name: Create new config and get config id
       run: |
-        curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" >> $RESPONSE
-        echo "RESPONSE: ${RESPONSE}"
-        echo $RESPONSE | jq -r '.id' >> $CONFIG_ID
+        RESPONSE=$(curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}")
+        echo $RESPONSE
+        CONFIG_ID=$(echo $RESPONSE | jq -r '.id')
         echo "Config ID: ${CONFIG_ID}"
-        echo "Config ID: $(CONFIG_ID)"
-
-    # - name: Export config_id
-    #   run: echo "config_id=$config_id" >> $GITHUB_ENV
 
     - name: Update config status to BUILDING
       run: |
@@ -59,7 +55,7 @@ jobs:
         dir
         ./convert.sh
         ./mutate.sh
-        cp ../../config.bin "../../config_${config_id}.bin"
+        cp ../../config.bin "../../config_${CONFIG_ID}.bin"
         echo pwd
         pwd
         echo ls
@@ -70,9 +66,9 @@ jobs:
     - name: Calculate checksum
       working-directory: ./Config/Excel
       run: |
-        checksum=$(md5sum "../../config_${{ steps.confignum.outputs.result }}.bin"
+        CHECKSUM=$(md5sum "../../config_${CONFIG_ID}.bin"
         #  > "../../config_${{ steps.confignum.outputs.result }}.md5")
-        echo "checksum is $checksum"
+        echo "CHECKSUM is $CHECKSUM"
 
     - name: "install aws cli"
       uses: ohthepain/action-install-aws-cli@v0.14
@@ -92,7 +88,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: 'eu-central-1'
         aws-bucket: 'yoga.config'
-        file-path: "./config_${{ steps.confignum.outputs.result }}.bin"
+        file-path: "./config_${CONFIG_ID}.bin"
         destination-dir: '/'
         output-file-url: 'true' # specify output
     - name: Show Config URL
@@ -101,7 +97,7 @@ jobs:
     - name: Complete the config
       run: |
         response = curl -X POST https://config.allknownmetalbands.com/api/configs/complete -H "Content-Type: application/json" \
-          -d '{"id": "$config_id", "checksumMd5": "$checksum", "downloadUrl": "${{ steps.upload.outputs.file-url }}"}' 
+          -d '{"id": "${CONFIG_ID}", "checksumMd5": "${CHECKSUM}", "downloadUrl": "${{ steps.upload.outputs.file-url }}"}' 
           -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
   
       
