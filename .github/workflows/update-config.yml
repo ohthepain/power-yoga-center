@@ -35,9 +35,7 @@ jobs:
 
     - name: Create new config and get config id
       run: |
-        curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" \
-          -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' \
-          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" >> $RESPONSE
+        curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" >> $RESPONSE
         echo $RESPONSE | jq -r '.id' >> $CONFIG_ID
         echo "Config ID: ${CONFIG_ID}"
         echo "Config ID: $(CONFIG_ID)"
