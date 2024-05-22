@@ -50,11 +50,12 @@ jobs:
 
     - name: Create new config and get config id
       run: |
-        response = curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" \
+        curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" \
           -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' 
-          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
-        config_id=$(echo $response | jq -r '.id')
-        echo "Config ID: ${config_id}"
+          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" >> $RESPONSE
+        config_id=$(echo $RESPONSE | jq -r '.id') >> $CONFIG_ID
+        echo "Config ID: ${CONFIG_ID}"
+        echo "Config ID: $(CONFIG_ID)"
 
     # - name: Export config_id
     #   run: echo "config_id=$config_id" >> $GITHUB_ENV
@@ -62,7 +63,7 @@ jobs:
     - name: Update config status to BUILDING
       run: |
         response = curl -X POST https://config.allknownmetalbands.com/api/configs/update-status -H "Content-Type: application/json" \
-          -d '{"id": "${config_id}", "status": "BUILDING"}' 
+          -d '{"id": "${CONFIG_ID}", "status": "BUILDING"}' 
           -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
   
     - name: Build config
