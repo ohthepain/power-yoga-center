@@ -38,8 +38,8 @@ jobs:
       run: |
         curl -X POST https://config.allknownmetalbands.com/api/configs/update-status \
           --header "Content-Type: application/json" \
-          -d '{"id": "${CONFIG_ID}", "status": "BUILDING"}' 
-          --header "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
+          --header "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" \
+          -d '{"id": "${CONFIG_ID}", "status": "BUILDING"}'
 
     - name: Set up Python
       uses: actions/setup-python@v5
