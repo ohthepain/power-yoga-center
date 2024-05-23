@@ -144,8 +144,8 @@ jobs:
       run: |
         $json = @{
           'id' = ${{ env.CONFIG_ID }}
-          'checksumMd5' = "${CHECKSUM}"
-          "downloadUrl" = "${{ steps.upload.outputs.file-url }}"
+          'checksumMd5' = ${{ env.CHECKSUM }}
+          'downloadUrl' = "${{ steps.upload.outputs.file-url }}"
           } | ConvertTo-Json
         $headers = @{
           'Content-Type' = 'application/json'
