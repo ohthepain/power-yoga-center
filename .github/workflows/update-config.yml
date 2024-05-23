@@ -90,7 +90,7 @@ jobs:
         dir
         ./convert.sh
         ./mutate.sh
-        cp ../../config.bin "../../config_${CONFIG_ID}.bin"
+        cp ../../config.bin "../../config_${{ env.CONFIG_ID }}.bin"
         echo pwd
         pwd
         echo ls
@@ -101,13 +101,13 @@ jobs:
     - name: Calculate MD5 checksum (windows)
       if: runner.os == 'Windows'
       run: |
-        $ConfigFile = "../../config_${env:CONFIG_ID}.bin"
+        $ConfigFile = "../../config_${{ env.CONFIG_ID }}.bin"
         $Checksum = (Get-FileHash -Path $ConfigFile -Algorithm MD5).Hash
         Write-Host "CHECKSUM is $Checksum"
       shell: pwsh
       env:
         CONFIG_API_TOKEN: ${{ secrets.CONFIG_API_TOKEN }}
-        CONFIG_ID: 48
+        # CONFIG_ID: 48
         
     - name: Calculate checksum (non-windows, untested)
       if: runner.os != 'Windows'
