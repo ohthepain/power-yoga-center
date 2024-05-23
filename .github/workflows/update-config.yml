@@ -99,6 +99,7 @@ jobs:
         ls ../..
 
     - name: Calculate MD5 checksum
+      if: runner.os == 'Windows'
       run: |
         $Checksum = (Get-FileHash -Path config_${{ env.CONFIG_ID }}.bin -Algorithm MD5).Hash
         Write-Host "CHECKSUM is $Checksum"
@@ -107,6 +108,7 @@ jobs:
         CONFIG_API_TOKEN: ${{ secrets.CONFIG_API_TOKEN }}      
         
     - name: Calculate checksum (non-windows, untested)
+      if: runner.os != 'Windows'
       working-directory: ./Config/Excel
       run: |
         CHECKSUM=$(md5sum "config_${CONFIG_ID}.bin"
