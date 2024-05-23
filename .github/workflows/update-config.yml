@@ -34,19 +34,21 @@ jobs:
         pip install -r requirements.txt
 
     - name: Create new config and get config id - Windows
+      if: runner.os == 'Windows'
       run: |
-        if [ "${{ runner.os }}" == "Windows" ]; then
-          $response = Invoke-Expression "curl -X POST https://config.allknownmetalbands.com/api/configs -H 'Content-Type: application/json' -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H 'Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}'"
-          Write-Output $response
-          $configId = ($response | Select-String -Pattern '"id":"([^"]+)"' -AllMatches).Matches.Groups[1].Value
-          Write-Output "Config ID: $configId"
-        else
-          RESPONSE=$(curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}")
-          echo "$RESPONSE"
-          CONFIG_ID=$(echo "$RESPONSE" | sed -n 's/.*"id":"\([^"]*\)".*/\1/p')
-          echo "Config ID: ${CONFIG_ID}"
-        fi
+        $response = Invoke-Expression "curl -X POST https://config.allknownmetalbands.com/api/configs -H 'Content-Type: application/json' -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H 'Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}'"
+        Write-Output $response
+        $configId = ($response | Select-String -Pattern '"id":"([^"]+)"' -AllMatches).Matches.Groups[1].Value
+        Write-Output "Config ID: $configId"
 
+    - name: Create new config and get config id - non-Windows (untested)
+      if: runner.os != 'Windows'
+      run: |
+        RESPONSE=$(curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}")
+        echo "$RESPONSE"
+        CONFIG_ID=$(echo "$RESPONSE" | sed -n 's/.*"id":"\([^"]*\)".*/\1/p')
+        echo "Config ID: ${CONFIG_ID}"
+          
     - name: Update config status to BUILDING
       run: |
         response = curl -X POST https://config.allknownmetalbands.com/api/configs/update-status -H "Content-Type: application/json" \
