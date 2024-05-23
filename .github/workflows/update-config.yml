@@ -20,6 +20,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Print runner OS - it has only been tested on Windows
+      run: echo "The runner's operating system is ${{ runner.os }}"    
+
+    - name: Print runner OS - you are running on an untested platform
+      if: runner.os != 'Windows'
+      run: echo "The runner's operating system is ${{ runner.os }}"    
+
     - name: Create new config and get config id - Windows
       if: runner.os == 'Windows'
       run: |
@@ -34,8 +41,27 @@ jobs:
         Write-Output "Config ID: $configId"
         echo "CONFIG_ID=$configId" | Out-File -Append -FilePath $env:GITHUB_ENV
       shell: pwsh
-    
-    - name: Update config status to BUILDING
+
+    - name: Create new config and get config id - non-Windows (untested)
+      if: runner.os != 'Windows'
+      run: |
+        echo Hi from an UNTESTED non-windows action
+        RESPONSE=$(curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}")
+        echo "$RESPONSE"
+        CONFIG_ID=$(echo "$RESPONSE" | sed -n 's/.*"id":"\([^"]*\)".*/\1/p')
+        echo "Config ID: ${CONFIG_ID}"
+
+    - name: Generate thrift source
+      working-directory: ./Config/Thrift
+      run: |
+        ../../thrift-0.20.0.exe --gen py Config.thrift
+  
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Update config status to BUILDING (windows)
+      if: runner.os == 'Windows'
       run: |
         $json = @{
           'id' = ${{ env.CONFIG_ID }}
@@ -49,29 +75,14 @@ jobs:
         Write-Output $response
       shell: pwsh
 
-    - name: Generate thrift source
-      working-directory: ./Config/Thrift
-      run: |
-        ../../thrift-0.20.0.exe --gen py Config.thrift
-
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-
-    - name: Create new config and get config id - non-Windows (untested)
+    - name: Update config status to BUILDING (non-windows, untested)
       if: runner.os != 'Windows'
       run: |
-        RESPONSE=$(curl -X POST https://config.allknownmetalbands.com/api/configs -H "Content-Type: application/json" -d '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}' -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}")
-        echo "$RESPONSE"
-        CONFIG_ID=$(echo "$RESPONSE" | sed -n 's/.*"id":"\([^"]*\)".*/\1/p')
-        echo "Config ID: ${CONFIG_ID}"
-          
-    - name: Update config status to BUILDING
-      run: |
+        echo Hi from an UNTESTED non-windows action
         curl -X POST https://config.allknownmetalbands.com/api/configs/update-status \
           -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" \
           -d '{"id": "${CONFIG_ID}", "status": "BUILDING"}' 
-          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
   
     - name: Build config
       working-directory: ./Config/Excel
@@ -117,11 +128,31 @@ jobs:
         output-file-url: 'true' # specify output
     - name: Show Config URL
       run: echo '${{ steps.upload.outputs.file-url }}' # use output
-
-    - name: Complete the config
-      run: |
-        response = curl -X POST https://config.allknownmetalbands.com/api/configs/complete -H "Content-Type: application/json" \
-          -d '{"id": "${CONFIG_ID}", "checksumMd5": "${CHECKSUM}", "downloadUrl": "${{ steps.upload.outputs.file-url }}"}' 
-          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
-  
       
+    - name: Complete the config
+      if: runner.os == 'Windows'
+      run: |
+        # $json = @{
+        #   'id' = ${{ env.CONFIG_ID }}
+        #   'status' = "BUILDING"
+        # } | ConvertTo-Json
+        $json = @{
+          'id' = ${{ env.CONFIG_ID }}
+          'checksumMd5' = "${CHECKSUM}"
+          "downloadUrl": "${{ steps.upload.outputs.file-url }}"}
+          } | ConvertTo-Json
+        $headers = @{
+          'Content-Type' = 'application/json'
+          'Authorization' = "Bearer ${{ secrets.CONFIG_API_KEY }}"
+        }
+        $response = Invoke-RestMethod -Uri https://config.allknownmetalbands.com/api/configs/update-status -Method Put -Body $json -Headers $headers
+        Write-Output $response
+      shell: pwsh
+    
+    - name: Complete the config non-windows (untested)
+      if: runner.os != 'Windows'
+      run: |
+        response = curl -X POST https://config.allknownmetalbands.com/api/configs/complete \
+          --header "Content-Type: application/json" \
+          --header "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" \
+          -d '{"id": "${CONFIG_ID}", "checksumMd5": "${CHECKSUM}", "downloadUrl": "${{ steps.upload.outputs.file-url }}"}' 
