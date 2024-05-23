@@ -37,9 +37,13 @@ jobs:
       if: runner.os == 'Windows'
       run: |
         $json = '{"gitHash": "db1b58efcf8c0366995c9a28afcbcae9c2727ed2", "branchName": "main", "projectName": "Power Yoga Center"}'
-        $response = curl --% -X POST https://config.allknownmetalbands.com/api/configs --header 'Content-Type: application/json' -d $json -H 'Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}'
+        $headers = @{
+          'Content-Type' = 'application/json'
+          'Authorization' = "Bearer ${{ secrets.CONFIG_API_KEY }}"
+        }
+        $response = Invoke-RestMethod -Uri https://config.allknownmetalbands.com/api/configs -Method Post -Body $json -Headers $headers
         Write-Output $response
-        $configId = ($response | Select-String -Pattern '"id":"([^"]+)"' -AllMatches).Matches.Groups[1].Value
+        $configId = ($response.id)
         Write-Output "Config ID: $configId"
       shell: pwsh
 
