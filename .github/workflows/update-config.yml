@@ -139,17 +139,13 @@ jobs:
     - name: Show Config URL
       run: echo '${{ steps.upload.outputs.file-url }}' # use output
       
-    - name: Complete the config
+    - name: Complete the config - Windows
       if: runner.os == 'Windows'
       run: |
-        # $json = @{
-        #   'id' = ${{ env.CONFIG_ID }}
-        #   'status' = "BUILDING"
-        # } | ConvertTo-Json
         $json = @{
           'id' = ${{ env.CONFIG_ID }}
           'checksumMd5' = "${CHECKSUM}"
-          "downloadUrl": "${{ steps.upload.outputs.file-url }}"}
+          "downloadUrl" = "${{ steps.upload.outputs.file-url }}"}
           } | ConvertTo-Json
         $headers = @{
           'Content-Type' = 'application/json'
