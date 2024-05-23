@@ -153,14 +153,14 @@ jobs:
           'Content-Type' = 'application/json'
           'Authorization' = "Bearer ${{ secrets.CONFIG_API_KEY }}"
         }
-        $response = Invoke-RestMethod -Uri https://config.allknownmetalbands.com/api/configs/update-status -Method Put -Body $json -Headers $headers
+        $response = Invoke-RestMethod -Uri https://config.allknownmetalbands.com/api/configs/complete -Method Put -Body $json -Headers $headers
         Write-Output $response
       shell: pwsh
     
     - name: Complete the config non-windows (untested)
       if: runner.os != 'Windows'
       run: |
-        response = curl -X POST https://config.allknownmetalbands.com/api/configs/complete \
+        response = curl -X PUT https://config.allknownmetalbands.com/api/configs/complete \
           --header "Content-Type: application/json" \
           --header "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}" \
           -d '{"id": "${CONFIG_ID}", "checksumMd5": "${CHECKSUM}", "downloadUrl": "${{ steps.upload.outputs.file-url }}"}' 
