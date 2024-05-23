@@ -32,9 +32,8 @@ jobs:
         Write-Output $response
         $configId = ($response.id)
         Write-Output "Config ID: $configId"
-        echo "CONFIG_ID=$configId" | Out-File -Append -FilePath $env:GITHUB_ENV
       shell: pwsh
-    
+
     - name: Update config status to BUILDING
       run: |
         $json = @{
