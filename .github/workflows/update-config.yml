@@ -99,10 +99,12 @@ jobs:
         ls ../..
 
     - name: Calculate MD5 checksum
+      id: checksum
       if: runner.os == 'Windows'
       run: |
         $Checksum = (Get-FileHash -Path config_${{ env.CONFIG_ID }}.bin -Algorithm MD5).Hash
         Write-Host "CHECKSUM is $Checksum"
+        echo "::set-output name=md5::$Checksum"
       shell: pwsh
       env:
         CONFIG_API_TOKEN: ${{ secrets.CONFIG_API_TOKEN }}      
@@ -144,7 +146,7 @@ jobs:
       run: |
         $json = @{
           'id' = ${{ env.CONFIG_ID }}
-          'checksumMd5' = ${{ env.CHECKSUM }}
+          'checksumMd5' = ${{ steps.checksum.outputs.md5 }}
           'downloadUrl' = "${{ steps.upload.outputs.file-url }}"
           } | ConvertTo-Json
         $headers = @{
