@@ -45,7 +45,7 @@ jobs:
           'Content-Type' = 'application/json'
           'Authorization' = "Bearer ${{ secrets.CONFIG_API_KEY }}"
         }
-        $response = Invoke-RestMethod -Uri https://config.allknownmetalbands.com/api/configs/update-status -Method Post -Body $json -Headers $headers
+        $response = Invoke-RestMethod -Uri https://config.allknownmetalbands.com/api/configs/update-status -Method Put -Body $json -Headers $headers
         Write-Output $response
       shell: pwsh
 
