@@ -19,19 +19,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
-
-    - name: Generate thrift source
-      working-directory: ./Config/Thrift
-      run: |
-        ../../thrift-0.20.0.exe --gen py Config.thrift
-
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
 
     - name: Create new config and get config id - Windows
       if: runner.os == 'Windows'
@@ -47,6 +34,27 @@ jobs:
         Write-Output "Config ID: $configId"
       shell: pwsh
 
+    - name: Update config status to BUILDING
+      run: |
+        curl -X POST https://config.allknownmetalbands.com/api/configs/update-status \
+          -H "Content-Type: application/json" \
+          -d '{"id": "${CONFIG_ID}", "status": "BUILDING"}' 
+          -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Generate thrift source
+      working-directory: ./Config/Thrift
+      run: |
+        ../../thrift-0.20.0.exe --gen py Config.thrift
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
     - name: Create new config and get config id - non-Windows (untested)
       if: runner.os != 'Windows'
       run: |
@@ -57,7 +65,8 @@ jobs:
           
     - name: Update config status to BUILDING
       run: |
-        response = curl -X POST https://config.allknownmetalbands.com/api/configs/update-status -H "Content-Type: application/json" \
+        curl -X POST https://config.allknownmetalbands.com/api/configs/update-status \
+          -H "Content-Type: application/json" \
           -d '{"id": "${CONFIG_ID}", "status": "BUILDING"}' 
           -H "Authorization: Bearer ${{ secrets.CONFIG_API_KEY }}"
   
