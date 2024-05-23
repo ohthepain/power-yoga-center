@@ -38,7 +38,7 @@ jobs:
     - name: Update config status to BUILDING
       run: |
         $json = @{
-          'id' = "${{ env.CONFIG_ID }}"
+          'id' = ${{ env.CONFIG_ID }}
           'status' = "BUILDING"
         } | ConvertTo-Json
         $headers = @{
